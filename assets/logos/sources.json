@@ -1,0 +1,63 @@
+{
+  "downloaded_on": "2026-11-18",
+  "note": "Brand artwork remains unchanged. PNG inputs were only transparently trimmed and losslessly optimized; the HKUST(GZ) logo was rendered directly from its official brand guideline and cropped to the logo. Universities retain all rights in their respective logos.",
+  "assets": [
+    {
+      "file": "xjtu.png",
+      "institution": "Xi’an Jiaotong University",
+      "dimensions": [
+        2935,
+        786
+      ],
+      "source_page": "https://vi.xjtu.edu.cn/ksxz/ksxz2.htm",
+      "source_asset": "https://vi.xjtu.edu.cn/img/a4-2xhred.png",
+      "format": "PNG RGBA",
+      "processing": "Lossless PNG optimization; no trimming required.",
+      "recommended_display_height_px": 40,
+      "web_dimensions": [
+        900,
+        241
+      ],
+      "web_bytes": 150090,
+      "web_processing": "Proportional downsampling for high-density displays; no recoloring or redrawing."
+    },
+    {
+      "file": "hkust-gz.png",
+      "institution": "The Hong Kong University of Science and Technology (Guangzhou)",
+      "dimensions": [
+        1332,
+        261
+      ],
+      "source_page": "https://brand.hkust.edu.hk/",
+      "source_asset": "https://brand.hkust.edu.hk/sites/default/files/bm_folder/HKUST_Brand_guideline.pdf",
+      "source_locator": "Physical PDF page 69 / printed page 66; section 4.3.2 Combination Logo",
+      "format": "PNG RGB, white background",
+      "processing": "Rendered official full-color English combination logo with Poppler at 4000px page width, cropped to unchanged artwork; losslessly optimized.",
+      "recommended_display_height_px": 40,
+      "web_dimensions": [
+        720,
+        141
+      ],
+      "web_bytes": 64168,
+      "web_processing": "Proportional downsampling for high-density displays; no recoloring or redrawing."
+    },
+    {
+      "file": "xbotics.png",
+      "institution": "Xbotics Research Team",
+      "dimensions": [
+        1817,
+        533
+      ],
+      "source": "User-supplied Xbotics logo 素材.zip / 描边-透明背景.png",
+      "format": "PNG RGBA",
+      "processing": "Trimmed one empty transparent pixel column from each side; lossless PNG optimization.",
+      "recommended_display_height_px": 40,
+      "web_dimensions": [
+        660,
+        194
+      ],
+      "web_bytes": 61954,
+      "web_processing": "Proportional downsampling for high-density displays; no recoloring or redrawing."
+    }
+  ]
+}

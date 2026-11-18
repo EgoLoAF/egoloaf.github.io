@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>EgoLoAF — Learning Humanoid Loco-Manipulation from Egocentric Demonstrations</title>
+  <meta name="description" content="EgoLoAF converts egocentric human demonstrations into humanoid training data and uses hand–object affordances for efficient VLA post-training, without wearable motion trackers or task-specific robot teleoperation demonstrations.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="EgoLoAF: From Egocentric Demonstrations to Humanoid Loco-Manipulation">
+  <meta property="og:description" content="Egocentric-to-humanoid data conversion, hand–object affordances, and efficient VLA post-training. 128,400 episodes · 1,284 tasks · 1,000 hours.">
+  <meta property="og:image" content="https://yuhengna.github.io/EgoLoAF/assets/social-preview.jpg">
+  <meta property="og:url" content="https://yuhengna.github.io/EgoLoAF/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://yuhengna.github.io/EgoLoAF/">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="nav-shell">
+      <div class="institution-logos" aria-label="Participating institutions">
+        <a href="https://www.xjtu.edu.cn/" aria-label="Xi'an Jiaotong University" target="_blank" rel="noopener noreferrer"><img src="./assets/logos/xjtu.png" alt="Xi'an Jiaotong University" width="2935" height="786"></a>
+        <a href="https://www.hkust-gz.edu.cn/" aria-label="The Hong Kong University of Science and Technology (Guangzhou)" target="_blank" rel="noopener noreferrer"><img src="./assets/logos/hkust-gz.png" alt="HKUST (Guangzhou)" width="1332" height="261"></a>
+        <span><img src="./assets/logos/xbotics.png" alt="Xbotics Research Team" width="1817" height="533"></span>
+      </div>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Open navigation"><span></span><span></span></button>
+      <nav id="navigation" aria-label="Main navigation">
+        <a href="#overview">Overview</a><a href="#method">Method</a><a href="#dataset">Dataset</a><a href="#results">Results</a><a href="#citation">Citation</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="paper-header page-width" aria-labelledby="paper-title">
+      <img class="project-wordmark" src="./assets/egoloaf-logo.png" alt="EgoLoAF" width="532" height="109">
+      <h1 id="paper-title"><span class="sr-only">EgoLoAF: </span>Learning Humanoid Loco-Manipulation<br class="desktop-break"> from Egocentric Demonstrations<br class="desktop-break"> with Hand–Object Affordances</h1>
+      <div class="authors" aria-label="Authors">
+        <span>Yiming Zeng<sup>1,3,*,†</sup></span><span>Jiangyuxuan Dai<sup>1,3,*</sup></span><span>Yuheng Na<sup>1,2,3,*,†</sup></span><span>TAN ZHU XUAN<sup>1,3</sup></span><span>Zihan Lin<sup>1</sup></span><span>Xinfang Qi<sup>1</sup></span><span>Shijian Zhang<sup>1</sup></span><span>Chengqi Shi<sup>1</sup></span><span>Yihan Kuang<sup>1</sup></span><span>Zhide Zhong<sup>2</sup></span><span>Junjie He<sup>2</sup></span><span>Junfeng Li<sup>2</sup></span><span>Zimu Han<sup>1</sup></span><span>Naipeng Li<sup>1,‡</sup></span><span>Haoang Li<sup>2,‡</sup></span>
+      </div>
+      <div class="affiliations"><span><sup>1</sup> Xi'an Jiaotong University</span><span><sup>2</sup> The Hong Kong University of Science and Technology (Guangzhou)</span><span><sup>3</sup> Xbotics Research Team</span></div>
+      <p class="author-notes"><span>* Equal contribution</span><span>† Project leads</span><span>‡ Corresponding authors</span></p>
+      <div class="resource-links">
+        <a class="resource-button primary" href="./assets/EgoLoAF.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l4 4v14H7zM14 3v5h4M10 12h5M10 16h5"/></svg>Paper <span class="resource-detail">PDF ↗</span></a>
+        <span class="resource-button unavailable" aria-disabled="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-13-2 16"/></svg>Code <span class="resource-detail">Coming soon</span></span>
+        <span class="resource-button unavailable" aria-disabled="true"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 4 16 4 16 0V5M4 12c0 4 16 4 16 0"/></svg>Dataset <span class="resource-detail">Coming soon</span></span>
+      </div>
+    </section>
+
+    <section class="hero page-width" aria-labelledby="hero-title">
+      <div class="hero-intro"><h2 id="hero-title">Human demonstrations.<br><span>Humanoid capabilities.</span></h2><p>Turn egocentric recordings into humanoid training data. Use hand–object affordances to guide action generation.</p></div>
+      <div class="transfer-visual">
+        <figure class="transfer-frame"><img src="./assets/hero-ego-plush.webp" alt="Original egocentric human demonstration with both hands approaching a plush toy" width="960" height="540" fetchpriority="high"><figcaption><span class="frame-dot human"></span>Egocentric human demonstration</figcaption></figure>
+        <div class="transfer-bridge" aria-label="Egocentric-to-humanoid conversion"><span class="bridge-label">Ego-to-humanoid</span><svg viewBox="0 0 110 30" aria-hidden="true"><path d="M2 15h99m-12-9 12 9-12 9"/></svg><span class="bridge-output">Action targets<br>+<br>Hand–object affordances</span></div>
+        <figure class="transfer-frame"><img src="./assets/hero-g1-plush-grasp.webp" alt="Unitree G1 with O6 hands manipulating a plush toy in a real-world experiment" width="1280" height="720" fetchpriority="high"><figcaption><span class="frame-dot robot"></span>Real-world G1 execution</figcaption></figure>
+      </div>
+      <div class="hero-conditions"><span>No wearable motion trackers</span><span>No task-specific robot teleoperation demos</span><span>Frozen vision-language backbone</span></div>
+      <div class="metrics" aria-label="Key results and dataset scale">
+        <div><strong>128,400</strong><span>demonstration episodes</span></div><div><strong>1,000<span class="unit">h</span></strong><span>after quality filtering</span></div><div><strong>1,284</strong><span>tasks</span></div><div class="metric-emphasis"><strong>4.03<span class="unit">×</span></strong><span>data-collection efficiency</span></div>
+      </div>
+      <p class="visual-note">Original human observation and robot experiment shown as examples of the same task family.</p>
+    </section>
+
+    <section class="section page-width" id="overview" aria-labelledby="overview-title">
+      <div class="section-heading"><span class="eyebrow">01 / Overview</span><h2 id="overview-title">From ego video to humanoid training data.</h2></div>
+      <p class="section-lead">EgoLoAF converts egocentric human demonstrations into coordinated torso and hand action targets, robot-view observations, and hand–object affordances. These converted data post-train a humanoid VLA without task-specific real-robot teleoperation demonstrations.</p>
+      <div class="takeaways">
+        <div><span class="takeaway-number">01</span><h3>Collect without a robot</h3><p>Record natural human demonstrations without wearable motion trackers.</p></div>
+        <div><span class="takeaway-number">02</span><h3>Make contact cues explicit</h3><p>Pair subsequent motion with the current pose of each hand relative to the object.</p></div>
+        <div><span class="takeaway-number">03</span><h3>Post-train efficiently</h3><p>Adapt the action expert while keeping the vision-language backbone frozen.</p></div>
+      </div>
+      <details class="abstract"><summary>Read the abstract <span aria-hidden="true">+</span></summary><p>Training humanoid vision-language-action (VLA) models relies heavily on costly real-robot teleoperation. Recent efforts convert egocentric human demonstrations into humanoid training data. However, most methods still require wearable motion trackers and leave important hand–object interaction cues implicit. Many also mix in real-robot teleoperation data for VLA post-training. These dependencies limit scalable data collection, while implicit interaction cues make precise contact harder to learn. To overcome these limitations, we propose <strong>EgoLoAF</strong>, the first paradigm to derive all training data for humanoid loco-manipulation directly from egocentric demonstrations without wearable motion trackers. We post-train the VLA on the converted data alone, without real-robot teleoperation demonstrations, and use explicit hand–object interaction cues to guide action generation. Specifically, to obtain humanoid action targets, we estimate torso motion from recorded camera poses and reconstruct both hand trajectories from video. From the same recording, we use each hand’s current pose relative to the object to represent hand–object affordances. During post-training, we inject these affordances into the action expert through cross-attention while keeping the vision-language backbone frozen. Additionally, we release 128,400 egocentric demonstration episodes spanning 1,000 hours and 1,284 tasks, together with converted humanoid action trajectories and rendered robot-view observations. Across four real-world tasks, EgoLoAF nearly achieves teleoperation performance (73.1 vs. 74.4 in mean Task Progress Score), while achieving a mean 4.03× improvement in data-collection efficiency.</p></details>
+    </section>
+
+    <section class="video-section page-width" aria-labelledby="video-title">
+      <div class="video-title"><h2 id="video-title">Video demo</h2><span>Coming soon</span></div>
+      <div class="video-placeholder" aria-label="Empty space reserved for the project video"><span>Video demo</span></div>
+    </section>
+
+    <section class="section method-section" id="method" aria-labelledby="method-title">
+      <div class="page-width">
+        <div class="section-heading"><span class="eyebrow">02 / Method</span><h2 id="method-title">One recording. Motion and affordances.</h2></div>
+        <p class="section-lead">The same demonstration tells the policy how the body and hands move, and how the hands are positioned relative to the object before that motion.</p>
+        <figure class="paper-figure"><button class="figure-zoom" type="button" data-zoom="./assets/pipeline.webp" data-title="EgoLoAF method pipeline" aria-label="Enlarge the EgoLoAF method pipeline"><img src="./assets/pipeline.webp" alt="EgoLoAF pipeline: reconstruct torso and hand action targets, render G1 arms and O6 hands, and condition the action expert on hand–object affordances through cross-attention" width="2200" height="884" loading="lazy"><span class="zoom-indicator">↗ Enlarge</span></button><figcaption>Egocentric-to-humanoid conversion and affordance-guided VLA post-training.</figcaption></figure>
+        <div class="method-steps">
+          <article><span class="step-index">A</span><h3>Convert the motion</h3><p>Reconstruct both hand trajectories from video and estimate torso motion from recorded camera poses. Describe subsequent motion relative to the current torso to form coordinated action targets.</p></article>
+          <article><span class="step-index">B</span><h3>Align the observations</h3><p>Replace human arms and hands with rendered G1 arms and O6 hands. The rendered observations and action targets form humanoid training pairs.</p></article>
+          <article><span class="step-index">C</span><h3>Guide the action expert</h3><p>Encode current object-relative hand poses as hand–object affordances. Inject these affordances through cross-attention during post-training, with the VLM frozen.</p></article>
+        </div>
+        <div class="deployment-note"><span class="status-dot"></span><p><strong>At deployment,</strong> the G1 estimates the same hand–object affordance representation from its own observations to guide action generation.</p></div>
+      </div>
+    </section>
+
+    <section class="section page-width" id="dataset" aria-labelledby="dataset-title">
+      <div class="section-heading split-heading"><div><span class="eyebrow">03 / Dataset</span><h2 id="dataset-title">Built for ego-to-humanoid learning.</h2></div><span class="availability">Dataset · Coming soon</span></div>
+      <p class="section-lead">128,400 complete demonstrations across 1,284 tasks, with 100 demonstrations per task. Quality-filtered recordings total 1,000 hours and cover different manipulation goals, objects, and body movements.</p>
+      <figure class="paper-figure dataset-figure"><button class="figure-zoom" type="button" data-zoom="./assets/dataset.webp" data-title="The EgoLoAF dataset" aria-label="Enlarge the EgoLoAF dataset examples"><img src="./assets/dataset.webp" alt="Paired original and robot-rendered egocentric observations, G1 torso poses, and diverse manipulation examples" width="2400" height="680" loading="lazy"><span class="zoom-indicator">↗ Enlarge</span></button><figcaption>Paired human and rendered robot observations, alongside coordinated humanoid motion and diverse task examples.</figcaption></figure>
+      <div class="dataset-details"><div><h3>Every demonstration includes</h3><ul><li>Original RGB observations and task instructions</li><li>Torso and bilateral hand trajectories, with hand-opening states</li><li>Rendered observations with G1 arms and O6 hands</li><li>Object poses and precomputed hand–object affordances</li></ul></div><div><h3>Time-aligned for training</h3><p>Original and rendered frames share timestamps, motion targets, and affordance annotations. Training windows pair a current observation and its affordances with subsequent torso and hand motion.</p><p class="dataset-footnote">Recordings are checked for completeness, camera trajectories, rendering quality, and task completion.</p></div></div>
+    </section>
+
+    <section class="section results-section" id="results" aria-labelledby="results-title">
+      <div class="page-width">
+        <div class="section-heading"><span class="eyebrow">04 / Real-world results</span><h2 id="results-title">Close to teleoperation.<br>More than four times as efficient.</h2></div>
+        <p class="section-lead">Across four tasks on a Unitree G1 with O6 dexterous hands, EgoLoAF reaches <strong>73.1 mean Task Progress Score</strong>, close to <strong>74.4</strong> for the teleoperation-trained baseline. Task-specific post-training uses egocentric demonstrations alone.</p>
+        <div class="task-tabs" role="tablist" aria-label="Select a real-world task"><button id="tab-1" type="button" role="tab" aria-selected="true" aria-controls="task-panel" data-task="0">Tissue-to-Box</button><button id="tab-2" type="button" role="tab" aria-selected="false" aria-controls="task-panel" tabindex="-1" data-task="1">Tissue-to-Bin</button><button id="tab-3" type="button" role="tab" aria-selected="false" aria-controls="task-panel" tabindex="-1" data-task="2">Pick-Turn-Place</button><button id="tab-4" type="button" role="tab" aria-selected="false" aria-controls="task-panel" tabindex="-1" data-task="3">Tissue-to-Cabinet</button></div>
+        <div class="task-panel" id="task-panel" role="tabpanel" aria-labelledby="tab-1" tabindex="0">
+          <div class="task-visual"><img id="task-image" src="./assets/task-1-tissue-box.webp" width="1400" height="617" alt="Tissue-to-Box task: grasp, turn, and place a tissue pack into a box" loading="lazy"><div class="task-description"><span id="task-kicker">Task 01</span><h3 id="task-title">Tissue-to-Box</h3><p id="task-description">Grasp a tissue pack, turn the torso, and place the pack precisely into a box.</p></div></div>
+          <div class="task-chart"><div class="chart-heading"><h3>Task Progress Score</h3><span>Higher is better</span></div><div class="bar-chart" aria-hidden="true"><div class="bar-group"><span class="bar-value" id="score-teleop">81.4</span><div class="bar-track"><div class="bar teleop" id="bar-teleop" style="--score:81.4%"></div></div><span class="bar-label">Teleop</span></div><div class="bar-group"><span class="bar-value" id="score-without">64.2</span><div class="bar-track"><div class="bar without" id="bar-without" style="--score:64.2%"></div></div><span class="bar-label">Ego w/o<br>affordances</span></div><div class="bar-group"><span class="bar-value ours-value" id="score-ours">81.0</span><div class="bar-track"><div class="bar ours" id="bar-ours" style="--score:81%"></div></div><span class="bar-label ours-value">EgoLoAF</span></div></div><p class="chart-summary" id="chart-summary" aria-live="polite">Tissue-to-Box: EgoLoAF 81.0, teleoperation-trained baseline 81.4, ego without affordances 64.2.</p></div>
+        </div>
+        <div class="results-summary"><div><span class="summary-label">Mean Task Progress Score</span><div class="mean-scores"><span><strong>73.1</strong>EgoLoAF</span><span><strong>74.4</strong>Teleop</span><span><strong>53.2</strong>Ego w/o affordances</span></div></div><div class="efficiency"><strong>4.03×</strong><div><h3>Data-collection efficiency</h3><p>More than quadrupled on average, measured using acquisition person-hours at matched training-frame budgets.</p></div></div></div>
+        <details class="results-table"><summary>View all task scores <span aria-hidden="true">+</span></summary><div class="table-scroll"><table><caption>Real-world Task Progress Scores; higher is better.</caption><thead><tr><th scope="col">Task</th><th scope="col">Teleop</th><th scope="col">Ego w/o affordances</th><th scope="col">EgoLoAF</th></tr></thead><tbody><tr><th scope="row">Tissue-to-Box</th><td>81.4</td><td>64.2</td><td>81.0</td></tr><tr><th scope="row">Tissue-to-Bin</th><td>75.2</td><td>55.8</td><td>70.0</td></tr><tr><th scope="row">Pick-Turn-Place</th><td>74.8</td><td>50.2</td><td>75.4</td></tr><tr><th scope="row">Tissue-to-Cabinet</th><td>66.0</td><td>42.5</td><td>65.8</td></tr><tr class="table-mean"><th scope="row">Mean</th><td>74.4</td><td>53.2</td><td>73.1</td></tr></tbody></table></div><p class="table-note">Teleop denotes the policy post-trained on real-robot teleoperation data. Ego w/o affordances uses converted egocentric data without affordance conditioning. Reported values aggregate repeated evaluation batches.</p></details>
+        <noscript><p>Task switching requires JavaScript. The complete score table above remains available.</p></noscript>
+      </div>
+    </section>
+
+    <section class="section page-width citation-section" id="citation" aria-labelledby="citation-title"><div class="section-heading"><span class="eyebrow">05 / Citation</span><h2 id="citation-title">BibTeX</h2></div><div class="citation-box"><div class="code-header"><span>egoloaf.bib</span><button type="button" id="copy-citation">Copy citation</button></div><pre><code id="bibtex">@misc{zeng2026egoloaf,
+  title   = {EgoLoAF: Learning Humanoid Loco-Manipulation from
+             Egocentric Demonstrations with Hand--Object Affordances},
+  author  = {Yiming Zeng and Jiangyuxuan Dai and Yuheng Na and
+             {TAN ZHU XUAN} and Zihan Lin and Xinfang Qi and
+             Shijian Zhang and Chengqi Shi and Yihan Kuang and
+             Zhide Zhong and Junjie He and Junfeng Li and
+             Zimu Han and Naipeng Li and Haoang Li},
+  year    = {2026},
+  url     = {https://yuhengna.github.io/EgoLoAF/}
+}</code></pre><span class="sr-only" id="copy-status" role="status"></span></div></section>
+  </main>
+
+  <footer class="page-width"><img src="./assets/egoloaf-logo.png" alt="EgoLoAF" width="532" height="109" loading="lazy"><p>Xi'an Jiaotong University · HKUST (Guangzhou) · Xbotics Research Team</p><a href="https://github.com/YuhengNa/EgoLoAF" target="_blank" rel="noopener noreferrer">Website source ↗</a></footer>
+  <dialog id="figure-dialog" aria-labelledby="dialog-title"><div class="dialog-toolbar"><h2 id="dialog-title">Figure</h2><button id="close-dialog" type="button" aria-label="Close enlarged figure">Close <span aria-hidden="true">×</span></button></div><div class="dialog-image-wrap"><img id="dialog-image" src="./assets/pipeline.webp" alt="Enlarged figure"></div></dialog>
+</body>
+</html>

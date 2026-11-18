@@ -1,0 +1,119 @@
+{
+  "project": "EgoLoAF project page",
+  "date": "2026-11-18",
+  "note": "Research figures are rendered from the authors\u2019 paper. Hero observations are real recorded frames. Task panels are crops of the paper\u2019s task figure.",
+  "assets": [
+    {
+      "file": "overview.webp",
+      "kind": "published_figure",
+      "width": 2000,
+      "height": 1444,
+      "bytes": 409674,
+      "sha256": "304e0186c4049fa84c0c143400ae51e214cc071dbd93156b0c6b14b1755c4b38"
+    },
+    {
+      "file": "pipeline.webp",
+      "kind": "published_figure",
+      "width": 2200,
+      "height": 884,
+      "bytes": 298868,
+      "sha256": "c5e31de984a9da854909e88c254fa84ffa0ff405d7b53b238d6f919bf0a6a0b0"
+    },
+    {
+      "file": "dataset.webp",
+      "kind": "published_figure",
+      "width": 2400,
+      "height": 680,
+      "bytes": 360416,
+      "sha256": "1db3e83b4d94d3fbcda64759fcea89fdce3412850364e08070a5013378785c7e"
+    },
+    {
+      "file": "tasks.webp",
+      "kind": "published_figure",
+      "width": 2400,
+      "height": 955,
+      "bytes": 338260,
+      "sha256": "fe66b9f3c9856cf7f33f4c0790988871169ad87d4c84bc9358459dd8f89ef1cc"
+    },
+    {
+      "file": "results-tps.webp",
+      "kind": "published_figure",
+      "width": 1400,
+      "height": 847,
+      "bytes": 42570,
+      "sha256": "b41f2358f80f749b40636dab95c50700164240c5f845cc04823d6af86e7529ef"
+    },
+    {
+      "file": "results-collection.webp",
+      "kind": "published_figure",
+      "width": 1400,
+      "height": 847,
+      "bytes": 53160,
+      "sha256": "18d87068a5599758b8e523283d45cad24d55f195418ba3343f7f126fdfbe83aa"
+    },
+    {
+      "file": "results-human-ablation.webp",
+      "kind": "published_figure",
+      "width": 1400,
+      "height": 875,
+      "bytes": 38800,
+      "sha256": "c6cb343de84643931e02f750be1f7b0f5511c9a11832b78e602ddb157ae9a807"
+    },
+    {
+      "file": "task-1-tissue-box.webp",
+      "kind": "published_task_crop",
+      "width": 1400,
+      "height": 617,
+      "bytes": 104338,
+      "sha256": "d4f335dbdc1fb3e5cbfddf4059ed5ab43e2b3596f0f1f7fb314a9fb91be6a060"
+    },
+    {
+      "file": "task-2-low-bin.webp",
+      "kind": "published_task_crop",
+      "width": 1400,
+      "height": 675,
+      "bytes": 95964,
+      "sha256": "cd43bd13c7f95f15342685af1cc85e10a8431dd5c1deedd5253a6dac4faa9ec5"
+    },
+    {
+      "file": "task-3-plush-tray.webp",
+      "kind": "published_task_crop",
+      "width": 1400,
+      "height": 468,
+      "bytes": 87650,
+      "sha256": "9c3bf702cfdd86a57d00260418656c61738cc99b37ccebf4b249ede6611dbbc7"
+    },
+    {
+      "file": "task-4-cabinet.webp",
+      "kind": "published_task_crop",
+      "width": 1400,
+      "height": 512,
+      "bytes": 116850,
+      "sha256": "706d6bdf9fe199aa26a9eb6dfd128225d14d4ecf53afd7cd6ab7442821711053"
+    },
+    {
+      "file": "hero-g1-plush-grasp.webp",
+      "kind": "original_video_frame",
+      "width": 1280,
+      "height": 720,
+      "bytes": 99578,
+      "sha256": "e5fa1f8910cc8a1fcf33d01fb2c76000137e59515491622dabad29654ca499c2"
+    },
+    {
+      "file": "hero-g1-bimanual.webp",
+      "kind": "original_video_frame",
+      "width": 1280,
+      "height": 720,
+      "bytes": 95030,
+      "sha256": "ee5ca6d2174418849f85e626f7bc479fd0843b7869eb00b586492909d5a447ac"
+    },
+    {
+      "file": "hero-ego-plush.webp",
+      "kind": "original_egocentric_rgb_crop",
+      "width": 960,
+      "height": 540,
+      "bytes": 49436,
+      "sha256": "b6c9950dca737835f3646f469c51c54435d70de69be48d8a3fe411fbbc75a661"
+    }
+  ]
+}
