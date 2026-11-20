@@ -2,7 +2,7 @@
 
 Static research project website for **EgoLoAF: Learning Humanoid Loco-Manipulation from Egocentric Demonstrations with Hand–Object Affordances**.
 
-Website: https://yuhengna.github.io/EgoLoAF/
+Website: https://egoloaf.github.io/
 
 ## Preview locally
 
@@ -20,7 +20,7 @@ Code and dataset resource buttons intentionally display **Coming soon**. They ar
 
 ## Hosting
 
-GitHub Pages serves the root of `main`. `.nojekyll` preserves the buildless static site. Keep asset paths relative so the site works at `/EgoLoAF/`.
+The `EgoLoAF/egoloaf.github.io` repository hosts the account homepage at https://egoloaf.github.io/. GitHub Pages serves the root of `main`; configure **Settings → Pages → Deploy from a branch → main → / (root)**. `.nojekyll` preserves the buildless static site. Asset paths are relative, and the canonical URL, social preview, and citation point to the account homepage.
 
 ## Asset provenance
 
