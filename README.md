@@ -13,10 +13,18 @@ No dependencies or build step are required.
 
 - `index.html`: paper information, authors, abstract, dataset, results, and citation.
 - `styles.css`: responsive presentation.
-- `script.js`: task comparison, image enlargement, navigation, and citation copying.
-- `assets/`: paper PDF, research figures, real experiment frames, and supplied logos.
+- `script.js`: demo playback and speed controls, task comparison, image enlargement, navigation, and citation copying.
+- `assets/`: paper PDF, research figures, complete task videos, real experiment frames, and supplied logos.
 
-The **Code** button links to the [official code repository](https://github.com/EgoLoAF/EgoLoAF-Official), where the code release is marked **Coming soon**. The dataset button remains unavailable and displays **Coming soon**. The video section intentionally has no video source; replace `.video-placeholder` with the project video when ready.
+The **Code** button links to the [official code repository](https://github.com/EgoLoAF/EgoLoAF-Official), where the code release is marked **Coming soon**. The dataset button remains unavailable and displays **Coming soon**.
+
+## Task demonstrations
+
+The `#demos` section follows the hero and dataset metrics, before the Overview. Four complete recordings appear in a two-column desktop grid and a single column on mobile. Tissue-to-Box, Tissue-to-Bin, and Pick-Turn-Place default to 2× playback; Tissue-to-Cabinet defaults to 3×. Each player has independent native controls and a speed selector, including 1×.
+
+Videos are H.264 MP4 files with no audio tracks. All original video frames and timestamps are retained; speed is applied in the browser, so the full original-speed recording remains available. `assets/videos/manifest.json` records durations, frame counts, dimensions, default speeds, and checksums. Posters are frames from the corresponding recordings.
+
+Visible videos loop independently. Playback pauses outside the viewport or when the tab is hidden, and deliberate user pauses are respected. Reduced-motion and data-saving preferences disable automatic playback. Without JavaScript, native controls still play the complete recordings at their original speed.
 
 ## Hosting
 

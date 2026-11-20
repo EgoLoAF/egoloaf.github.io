@@ -28,7 +28,7 @@
       </div>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Open navigation"><span></span><span></span></button>
       <nav id="navigation" aria-label="Main navigation">
-        <a href="#overview">Overview</a><a href="#method">Method</a><a href="#dataset">Dataset</a><a href="#results">Results</a><a href="#citation">Citation</a>
+        <a href="#demos">Demos</a><a href="#overview">Overview</a><a href="#method">Method</a><a href="#dataset">Dataset</a><a href="#results">Results</a><a href="#citation">Citation</a>
       </nav>
     </div>
   </header>
@@ -63,6 +63,53 @@
       <p class="visual-note">Original human observation and robot experiment shown as examples of the same task family.</p>
     </section>
 
+    <section class="demo-section page-width" id="demos" aria-labelledby="demos-title">
+      <div class="section-heading"><span class="eyebrow">Real-world demos</span><h2 id="demos-title">Four tasks. Complete executions.</h2></div>
+      <p class="demo-intro">Full, silent recordings on the G1. Watch at 2× or 3× speed, switch to the original pace, or open any video fullscreen.</p>
+      <div class="demo-grid">
+        <article class="demo-card" aria-labelledby="demo-box-title">
+          <video id="demo-box" controls muted playsinline loop preload="metadata" poster="./assets/videos/tissue-to-box.jpg" width="960" height="544" data-playback-rate="2" aria-labelledby="demo-box-title" aria-describedby="demo-box-description">
+            <source src="./assets/videos/tissue-to-box.mp4" type="video/mp4">
+            <a href="./assets/videos/tissue-to-box.mp4">Download the complete Tissue-to-Box video.</a>
+          </video>
+          <div class="demo-caption">
+            <div class="demo-card-heading"><h3 id="demo-box-title">Tissue-to-Box</h3><label class="demo-speed" hidden>Speed <select aria-label="Tissue-to-Box playback speed" aria-controls="demo-box"><option value="1">1×</option><option value="1.5">1.5×</option><option value="2" selected>2×</option><option value="3">3×</option></select></label></div>
+            <p id="demo-box-description">Pick up a tissue pack and place it into the box.</p>
+          </div>
+        </article>
+        <article class="demo-card" aria-labelledby="demo-bin-title">
+          <video id="demo-bin" controls muted playsinline loop preload="metadata" poster="./assets/videos/tissue-to-bin.jpg" width="1280" height="720" data-playback-rate="2" aria-labelledby="demo-bin-title" aria-describedby="demo-bin-description">
+            <source src="./assets/videos/tissue-to-bin.mp4" type="video/mp4">
+            <a href="./assets/videos/tissue-to-bin.mp4">Download the complete Tissue-to-Bin video.</a>
+          </video>
+          <div class="demo-caption">
+            <div class="demo-card-heading"><h3 id="demo-bin-title">Tissue-to-Bin</h3><label class="demo-speed" hidden>Speed <select aria-label="Tissue-to-Bin playback speed" aria-controls="demo-bin"><option value="1">1×</option><option value="1.5">1.5×</option><option value="2" selected>2×</option><option value="3">3×</option></select></label></div>
+            <p id="demo-bin-description">Turn and lower the body to place the tissue pack in a low bin.</p>
+          </div>
+        </article>
+        <article class="demo-card" aria-labelledby="demo-plush-title">
+          <video id="demo-plush" controls muted playsinline loop preload="metadata" poster="./assets/videos/pick-turn-place.jpg" width="960" height="544" data-playback-rate="2" aria-labelledby="demo-plush-title" aria-describedby="demo-plush-description">
+            <source src="./assets/videos/pick-turn-place.mp4" type="video/mp4">
+            <a href="./assets/videos/pick-turn-place.mp4">Download the complete Pick-Turn-Place video.</a>
+          </video>
+          <div class="demo-caption">
+            <div class="demo-card-heading"><h3 id="demo-plush-title">Pick-Turn-Place</h3><label class="demo-speed" hidden>Speed <select aria-label="Pick-Turn-Place playback speed" aria-controls="demo-plush"><option value="1">1×</option><option value="1.5">1.5×</option><option value="2" selected>2×</option><option value="3">3×</option></select></label></div>
+            <p id="demo-plush-description">Pick up both plush toys, turn, and place them into the tray.</p>
+          </div>
+        </article>
+        <article class="demo-card" aria-labelledby="demo-cabinet-title">
+          <video id="demo-cabinet" controls muted playsinline loop preload="metadata" poster="./assets/videos/tissue-to-cabinet.jpg" width="960" height="544" data-playback-rate="3" aria-labelledby="demo-cabinet-title" aria-describedby="demo-cabinet-description">
+            <source src="./assets/videos/tissue-to-cabinet.mp4" type="video/mp4">
+            <a href="./assets/videos/tissue-to-cabinet.mp4">Download the complete Tissue-to-Cabinet video.</a>
+          </video>
+          <div class="demo-caption">
+            <div class="demo-card-heading"><h3 id="demo-cabinet-title">Tissue-to-Cabinet</h3><label class="demo-speed" hidden>Speed <select aria-label="Tissue-to-Cabinet playback speed" aria-controls="demo-cabinet"><option value="1">1×</option><option value="1.5">1.5×</option><option value="2">2×</option><option value="3" selected>3×</option></select></label></div>
+            <p id="demo-cabinet-description">Pick, turn, walk to the cabinet, squat to place the tissue pack inside, and close both doors.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <section class="section page-width" id="overview" aria-labelledby="overview-title">
       <div class="section-heading"><span class="eyebrow">01 / Overview</span><h2 id="overview-title">From ego video to humanoid training data.</h2></div>
       <p class="section-lead">EgoLoAF converts egocentric human demonstrations into coordinated torso and hand action targets, robot-view observations, and hand–object affordances. These converted data post-train a humanoid VLA without task-specific real-robot teleoperation demonstrations.</p>
@@ -72,11 +119,6 @@
         <div><span class="takeaway-number">03</span><h3>Post-train efficiently</h3><p>Adapt the action expert while keeping the vision-language backbone frozen.</p></div>
       </div>
       <details class="abstract"><summary>Read the abstract <span aria-hidden="true">+</span></summary><p>Training humanoid vision-language-action (VLA) models relies heavily on costly real-robot teleoperation. Recent efforts convert egocentric human demonstrations into humanoid training data. However, most methods still require wearable motion trackers and leave important hand–object interaction cues implicit. Many also mix in real-robot teleoperation data for VLA post-training. These dependencies limit scalable data collection, while implicit interaction cues make precise contact harder to learn. To overcome these limitations, we propose <strong>EgoLoAF</strong>, the first paradigm to derive all training data for humanoid loco-manipulation directly from egocentric demonstrations without wearable motion trackers. We post-train the VLA on the converted data alone, without real-robot teleoperation demonstrations, and use explicit hand–object interaction cues to guide action generation. Specifically, to obtain humanoid action targets, we estimate torso motion from recorded camera poses and reconstruct both hand trajectories from video. From the same recording, we use each hand’s current pose relative to the object to represent hand–object affordances. During post-training, we inject these affordances into the action expert through cross-attention while keeping the vision-language backbone frozen. Additionally, we release 128,400 egocentric demonstration episodes spanning 1,000 hours and 1,284 tasks, together with converted humanoid action trajectories and rendered robot-view observations. Across four real-world tasks, EgoLoAF nearly achieves teleoperation performance (73.1 vs. 74.4 in mean Task Progress Score), while achieving a mean 4.03× improvement in data-collection efficiency.</p></details>
-    </section>
-
-    <section class="video-section page-width" aria-labelledby="video-title">
-      <div class="video-title"><h2 id="video-title">Video demo</h2><span>Coming soon</span></div>
-      <div class="video-placeholder" aria-label="Empty space reserved for the project video"><span>Video demo</span></div>
     </section>
 
     <section class="section method-section" id="method" aria-labelledby="method-title">

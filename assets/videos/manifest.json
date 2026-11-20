@@ -1,0 +1,70 @@
+{
+  "date": "2026-11-21",
+  "source": "Author-provided full task demonstrations. Audio removed; H.264 web copies retain all frames and original timestamps. Playback speed is set in the browser, not baked into the video.",
+  "videos": [
+    {
+      "task": "tissue-to-box",
+      "file": "tissue-to-box.mp4",
+      "poster": "tissue-to-box.jpg",
+      "default_playback_rate": 2,
+      "codec": "h264",
+      "width": 960,
+      "height": 544,
+      "duration_seconds": 28.733333333333334,
+      "frame_count": 861,
+      "audio_streams": 0,
+      "complete_recording": true,
+      "timestamps_preserved": true,
+      "bytes": 2864967,
+      "sha256": "8021990b8960a87547c4305f8cb19ca346db3fa4c0f00d7eb673c14ecbcc781d"
+    },
+    {
+      "task": "tissue-to-bin",
+      "file": "tissue-to-bin.mp4",
+      "poster": "tissue-to-bin.jpg",
+      "default_playback_rate": 2,
+      "codec": "h264",
+      "width": 1280,
+      "height": 720,
+      "duration_seconds": 34.166666666666664,
+      "frame_count": 1024,
+      "audio_streams": 0,
+      "complete_recording": true,
+      "timestamps_preserved": true,
+      "bytes": 4805924,
+      "sha256": "71d4170e10c36cc9be8e81c98f678b8d8b355bfec8ba9b77af8dffcd3d6c2397"
+    },
+    {
+      "task": "pick-turn-place",
+      "file": "pick-turn-place.mp4",
+      "poster": "pick-turn-place.jpg",
+      "default_playback_rate": 2,
+      "codec": "h264",
+      "width": 960,
+      "height": 544,
+      "duration_seconds": 54.233333333333334,
+      "frame_count": 1626,
+      "audio_streams": 0,
+      "complete_recording": true,
+      "timestamps_preserved": true,
+      "bytes": 5939806,
+      "sha256": "d1d35d7b91633b09505870b12f114de97ae29ea37076181db28c2f8519260378"
+    },
+    {
+      "task": "tissue-to-cabinet",
+      "file": "tissue-to-cabinet.mp4",
+      "poster": "tissue-to-cabinet.jpg",
+      "default_playback_rate": 3,
+      "codec": "h264",
+      "width": 960,
+      "height": 544,
+      "duration_seconds": 100.33333333333333,
+      "frame_count": 3008,
+      "audio_streams": 0,
+      "complete_recording": true,
+      "timestamps_preserved": true,
+      "bytes": 8963746,
+      "sha256": "55a598d0d33d808ea4e91da8389ea157929fe8e67e90390b6aa6a2a9459a8ca2"
+    }
+  ]
+}

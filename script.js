@@ -108,3 +108,60 @@ if ("IntersectionObserver" in window) {
   }, { rootMargin: "-15% 0px -65% 0px" });
   document.querySelectorAll("main section[id]").forEach(section => observer.observe(section));
 }
+
+// Keep original recording timestamps; speed changes only affect playback.
+const demoPlayers = [];
+const allowDemoAutoplay = !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  && !navigator.connection?.saveData;
+
+document.querySelectorAll(".demo-card").forEach(card => {
+  const video = card.querySelector("video");
+  const speedControl = card.querySelector("select");
+  const defaultRate = Number(video.dataset.playbackRate);
+  let visible = false;
+  let resumeWhenVisible = allowDemoAutoplay;
+  let automaticPause = false;
+
+  video.defaultPlaybackRate = defaultRate;
+  video.playbackRate = defaultRate;
+  card.querySelector(".demo-speed").hidden = false;
+  speedControl.addEventListener("change", () => {
+    video.playbackRate = Number(speedControl.value);
+  });
+  video.addEventListener("ratechange", () => {
+    const rate = String(video.playbackRate);
+    if (![...speedControl.options].some(option => option.value === rate)) {
+      speedControl.add(new Option(`${rate}×`, rate));
+    }
+    speedControl.value = rate;
+  });
+
+  function pauseAutomatically() {
+    if (!video.paused) {
+      automaticPause = true;
+      video.pause();
+    }
+  }
+  function updatePlayback() {
+    if (!visible || document.hidden) {
+      pauseAutomatically();
+    } else if (resumeWhenVisible && video.paused) {
+      // Native controls remain available if the browser blocks autoplay.
+      video.play().catch(() => {});
+    }
+  }
+  video.addEventListener("pause", () => {
+    if (!automaticPause) resumeWhenVisible = false;
+    automaticPause = false;
+  });
+  video.addEventListener("play", () => { resumeWhenVisible = true; });
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(entries => {
+      visible = entries[0].isIntersecting && entries[0].intersectionRatio >= 0.25;
+      updatePlayback();
+    }, { threshold: [0, 0.25] });
+    observer.observe(video);
+  }
+  demoPlayers.push(updatePlayback);
+});
+document.addEventListener("visibilitychange", () => demoPlayers.forEach(update => update()));
