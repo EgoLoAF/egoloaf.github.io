@@ -16,7 +16,7 @@ No dependencies or build step are required.
 - `script.js`: task comparison, image enlargement, navigation, and citation copying.
 - `assets/`: paper PDF, research figures, real experiment frames, and supplied logos.
 
-Code and dataset resource buttons intentionally display **Coming soon**. They are not placeholder links. The video section intentionally has no video source; replace `.video-placeholder` with the project video when ready.
+The **Code** button links to the [official code repository](https://github.com/EgoLoAF/EgoLoAF-Official), where the code release is marked **Coming soon**. The dataset button remains unavailable and displays **Coming soon**. The video section intentionally has no video source; replace `.video-placeholder` with the project video when ready.
 
 ## Hosting
 
