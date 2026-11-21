@@ -165,3 +165,122 @@ document.querySelectorAll(".demo-card").forEach(card => {
   demoPlayers.push(updatePlayback);
 });
 document.addEventListener("visibilitychange", () => demoPlayers.forEach(update => update()));
+
+// One composite video keeps both full recordings on exactly the same clock.
+const collectionVideo = document.getElementById("collection-video");
+if (collectionVideo) {
+  const timeline = JSON.parse(document.getElementById("collection-timeline").textContent);
+  const speedControl = document.getElementById("collection-speed");
+  const timeDisplay = document.getElementById("collection-time");
+  const durationDisplay = document.getElementById("collection-duration");
+  let visible = false;
+  let resumeWhenVisible = allowDemoAutoplay;
+  let automaticPause = false;
+
+  function clockLabel(seconds) {
+    const whole = Math.max(0, Math.floor(seconds));
+    return `${String(Math.floor(whole / 60)).padStart(2, "0")}:${String(whole % 60).padStart(2, "0")}`;
+  }
+  let switchingOrientation = false;
+  function updateCollectionReadouts() {
+    if (switchingOrientation) return;
+    const time = collectionVideo.currentTime;
+    timeDisplay.textContent = clockLabel(time);
+    if (Number.isFinite(collectionVideo.duration)) {
+      durationDisplay.textContent = clockLabel(collectionVideo.duration);
+    }
+    Object.entries(timeline).forEach(([side, data]) => {
+      const count = data.completions.filter(at => time >= at).length;
+      const stage = data.phases.filter(([at]) => time >= at).pop();
+      document.getElementById(`collection-${side}-count`).textContent = String(count);
+      const stageDisplay = document.getElementById(`collection-${side}-stage`);
+      const text = collectionVideo.ended ? "Recording finished" : stage[1];
+      if (stageDisplay.textContent !== text) stageDisplay.textContent = text;
+      stageDisplay.dataset.phase = collectionVideo.ended ? "complete" : stage[2];
+    });
+  }
+  collectionVideo.defaultPlaybackRate = 4;
+  collectionVideo.playbackRate = 4;
+  document.querySelector(".collection-controls").hidden = false;
+  document.querySelectorAll(".collection-count-label").forEach(label => { label.textContent = "Completed demos"; });
+  document.querySelectorAll(".collection-stage").forEach(stage => { stage.hidden = false; });
+  ["loadedmetadata", "timeupdate", "seeked", "ended"].forEach(event => {
+    collectionVideo.addEventListener(event, updateCollectionReadouts);
+  });
+  updateCollectionReadouts();
+
+  speedControl.addEventListener("change", () => { collectionVideo.playbackRate = Number(speedControl.value); });
+  collectionVideo.addEventListener("ratechange", () => {
+    const rate = String(collectionVideo.playbackRate);
+    if (![...speedControl.options].some(option => option.value === rate)) {
+      speedControl.add(new Option(`${rate}×`, rate));
+    }
+    speedControl.value = rate;
+  });
+  document.getElementById("collection-replay").addEventListener("click", () => {
+    collectionVideo.currentTime = 0;
+    resumeWhenVisible = true;
+    updateCollectionReadouts();
+    collectionVideo.play().catch(() => {});
+  });
+  function updateCollectionPlayback() {
+    if (switchingOrientation) return;
+    if (!visible || document.hidden) {
+      if (!collectionVideo.paused) {
+        automaticPause = true;
+        collectionVideo.pause();
+      }
+    } else if (resumeWhenVisible && collectionVideo.paused && !collectionVideo.ended) {
+      collectionVideo.play().catch(() => {});
+    }
+  }
+  collectionVideo.addEventListener("pause", () => {
+    if (switchingOrientation) return;
+    if (!automaticPause) resumeWhenVisible = false;
+    automaticPause = false;
+  });
+  collectionVideo.addEventListener("play", () => { resumeWhenVisible = true; });
+  collectionVideo.addEventListener("ended", () => { resumeWhenVisible = false; });
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(entries => {
+      visible = entries[0].isIntersecting && entries[0].intersectionRatio >= 0.25;
+      updateCollectionPlayback();
+    }, { threshold: [0, 0.25] });
+    observer.observe(collectionVideo);
+  }
+  demoPlayers.push(updateCollectionPlayback);
+
+  const portraitLayout = window.matchMedia("(max-width: 560px)");
+  let pendingLayoutState = null;
+  let restoreLayout = null;
+  function updateCollectionOrientation() {
+    const portrait = portraitLayout.matches;
+    const suffix = portrait ? "-portrait" : "";
+    const source = `./assets/videos/collection/collection-comparison${suffix}.mp4`;
+    collectionVideo.poster = `./assets/videos/collection/collection-comparison${suffix}.jpg`;
+    collectionVideo.setAttribute("aria-label", portrait
+      ? "Synchronized data collection: robot teleoperation above, egocentric human collection below"
+      : "Synchronized data collection: robot teleoperation on the left, egocentric human collection on the right");
+    // The source elements handle the initial layout, including without JavaScript.
+    const activeSource = collectionVideo.getAttribute("src") ? collectionVideo.src : collectionVideo.currentSrc;
+    if (!activeSource || activeSource === new URL(source, document.baseURI).href) return;
+    if (!pendingLayoutState) pendingLayoutState = { time: collectionVideo.currentTime, rate: collectionVideo.playbackRate };
+    if (restoreLayout) collectionVideo.removeEventListener("loadedmetadata", restoreLayout);
+    switchingOrientation = true;
+    restoreLayout = () => {
+      collectionVideo.currentTime = Math.min(pendingLayoutState.time, collectionVideo.duration);
+      collectionVideo.playbackRate = pendingLayoutState.rate;
+      pendingLayoutState = null;
+      restoreLayout = null;
+      switchingOrientation = false;
+      automaticPause = false;
+      updateCollectionReadouts();
+      updateCollectionPlayback();
+    };
+    collectionVideo.addEventListener("loadedmetadata", restoreLayout, { once: true });
+    collectionVideo.src = source;
+    collectionVideo.load();
+  }
+  portraitLayout.addEventListener("change", updateCollectionOrientation);
+  updateCollectionOrientation();
+}

@@ -14,8 +14,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://egoloaf.github.io/">
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./styles.css?v=demos-20261121">
-  <script src="./script.js?v=demos-20261121" defer></script>
+  <link rel="stylesheet" href="./styles.css?v=collection-20261121">
+  <script src="./script.js?v=collection-20261121" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -28,7 +28,7 @@
       </div>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Open navigation"><span></span><span></span></button>
       <nav id="navigation" aria-label="Main navigation">
-        <a href="#demos">Demos</a><a href="#overview">Overview</a><a href="#method">Method</a><a href="#dataset">Dataset</a><a href="#results">Results</a><a href="#citation">Citation</a>
+        <a href="#overview">Overview</a><a href="#method">Method</a><a href="#demos">Demos</a><a href="#dataset">Dataset</a><a href="#results">Results</a><a href="#citation">Citation</a>
       </nav>
     </div>
   </header>
@@ -49,18 +49,57 @@
       </div>
     </section>
 
-    <section class="hero page-width" aria-labelledby="hero-title">
-      <div class="hero-intro"><h2 id="hero-title">Human demonstrations.<br><span>Humanoid capabilities.</span></h2><p>Turn egocentric recordings into humanoid training data. Use hand–object affordances to guide action generation.</p></div>
-      <div class="transfer-visual">
-        <figure class="transfer-frame"><img src="./assets/hero-ego-plush.webp" alt="Original egocentric human demonstration with both hands approaching a plush toy" width="960" height="540" fetchpriority="high"><figcaption><span class="frame-dot human"></span>Egocentric human demonstration</figcaption></figure>
-        <div class="transfer-bridge" aria-label="Egocentric-to-humanoid conversion"><span class="bridge-label">Ego-to-humanoid</span><svg viewBox="0 0 110 30" aria-hidden="true"><path d="M2 15h99m-12-9 12 9-12 9"/></svg><span class="bridge-output">Action targets<br>+<br>Hand–object affordances</span></div>
-        <figure class="transfer-frame"><img src="./assets/hero-g1-plush-grasp.webp" alt="Unitree G1 with O6 hands manipulating a plush toy in a real-world experiment" width="1280" height="720" fetchpriority="high"><figcaption><span class="frame-dot robot"></span>Real-world G1 execution</figcaption></figure>
+    <section class="hero collection-hero page-width" id="collection" aria-labelledby="hero-title">
+      <div class="hero-intro"><h2 id="hero-title">A new paradigm for<br><span>humanoid data collection.</span></h2><p>Collect egocentric human demonstrations and convert them into training data for humanoid loco-manipulation.</p></div>
+      <div class="collection-comparison">
+        <div class="collection-headings">
+          <div class="collection-heading collection-teleop"><span class="collection-position">Top video</span><div class="collection-heading-line"><h3>Robot teleoperation</h3><span class="staffing">2 people</span></div><p>Operator + reset assistant</p></div>
+          <div class="collection-heading collection-ego"><span class="collection-position">Bottom video</span><div class="collection-heading-line"><h3>Egocentric collection</h3><span class="staffing">1 person</span></div><p>Demonstration + scene reset</p></div>
+        </div>
+        <video id="collection-video" controls muted playsinline preload="metadata" poster="./assets/videos/collection/collection-comparison.jpg" width="1936" height="544" aria-label="Synchronized data collection: robot teleoperation on the left, egocentric human collection on the right" aria-describedby="collection-caption">
+          <source src="./assets/videos/collection/collection-comparison-portrait.mp4" media="(max-width: 560px)" type="video/mp4">
+          <source src="./assets/videos/collection/collection-comparison.mp4" type="video/mp4">
+          <a href="./assets/videos/collection/collection-comparison.mp4">Download the complete collection comparison.</a>
+        </video>
+        <div class="collection-readouts">
+          <div class="collection-readout collection-teleop"><div class="collection-count"><strong id="collection-teleop-count">1</strong><span class="collection-count-label">Demos in this recording</span></div><p class="collection-stage" id="collection-teleop-stage" hidden></p></div>
+          <div class="collection-readout collection-ego"><div class="collection-count"><strong id="collection-ego-count">4</strong><span class="collection-count-label">Demos in this recording</span></div><p class="collection-stage" id="collection-ego-stage" hidden></p></div>
+        </div>
+        <div class="collection-controls" hidden>
+          <div class="collection-clock"><span>Recording time</span><span><output id="collection-time">00:00</output> / <span id="collection-duration">02:37</span></span></div>
+          <div class="collection-actions"><label class="collection-speed">Both sides <select id="collection-speed" aria-label="Collection comparison playback speed" aria-controls="collection-video"><option value="1">1×</option><option value="2">2×</option><option value="4" selected>4×</option></select></label><button type="button" id="collection-replay" aria-controls="collection-video">Replay</button></div>
+        </div>
       </div>
+      <p class="collection-caption" id="collection-caption"><strong>Tissue-to-Cabinet collection.</strong> Full recordings on the same time scale, including resets. Staffing shown for our collection setup.</p>
       <div class="hero-conditions"><span>No wearable motion trackers</span><span>No task-specific robot teleoperation demos</span><span>Frozen vision-language backbone</span></div>
-      <div class="metrics" aria-label="Key results and dataset scale">
-        <div><strong>128,400</strong><span>demonstration episodes</span></div><div><strong>1,000<span class="unit">h</span></strong><span>after quality filtering</span></div><div><strong>1,284</strong><span>tasks</span></div><div class="metric-emphasis"><strong>4.03<span class="unit">×</span></strong><span>data-collection efficiency</span></div>
+      <script type="application/json" id="collection-timeline">
+        {"teleop":{"completions":[124],"phases":[[0,"Collecting demo 1","collecting"],[124,"Demo complete","complete"],[127,"Resetting robot & scene","resetting"],[154,"Ready for next demo","ready"],[156.433333,"Recording finished","complete"]]},"ego":{"completions":[23,59,100,147],"phases":[[0,"Collecting demo 1","collecting"],[23,"Resetting scene","resetting"],[34,"Collecting demo 2","collecting"],[59,"Resetting scene","resetting"],[74,"Collecting demo 3","collecting"],[100,"Resetting scene","resetting"],[116,"Collecting demo 4","collecting"],[147,"Resetting scene","resetting"],[157,"Ready for next demo","ready"]]}}
+      </script>
+    </section>
+
+    <section class="section page-width" id="overview" aria-labelledby="overview-title">
+      <div class="section-heading"><span class="eyebrow">01 / Overview</span><h2 id="overview-title">From ego video to humanoid training data.</h2></div>
+      <p class="section-lead">EgoLoAF converts egocentric human demonstrations into coordinated torso and hand action targets, robot-view observations, and hand–object affordances. These converted data post-train a humanoid VLA without task-specific real-robot teleoperation demonstrations.</p>
+      <div class="takeaways">
+        <div><span class="takeaway-number">01</span><h3>Collect without a robot</h3><p>Record natural human demonstrations without wearable motion trackers.</p></div>
+        <div><span class="takeaway-number">02</span><h3>Make contact cues explicit</h3><p>Pair subsequent motion with the current pose of each hand relative to the object.</p></div>
+        <div><span class="takeaway-number">03</span><h3>Post-train efficiently</h3><p>Adapt the action expert while keeping the vision-language backbone frozen.</p></div>
       </div>
-      <p class="visual-note">Original human observation and robot experiment shown as examples of the same task family.</p>
+      <details class="abstract"><summary>Read the abstract <span aria-hidden="true">+</span></summary><p>Training humanoid vision-language-action (VLA) models relies heavily on costly real-robot teleoperation. Recent efforts convert egocentric human demonstrations into humanoid training data. However, most methods still require wearable motion trackers and leave important hand–object interaction cues implicit. Many also mix in real-robot teleoperation data for VLA post-training. These dependencies limit scalable data collection, while implicit interaction cues make precise contact harder to learn. To overcome these limitations, we propose <strong>EgoLoAF</strong>, the first paradigm to derive all training data for humanoid loco-manipulation directly from egocentric demonstrations without wearable motion trackers. We post-train the VLA on the converted data alone, without real-robot teleoperation demonstrations, and use explicit hand–object interaction cues to guide action generation. Specifically, to obtain humanoid action targets, we estimate torso motion from recorded camera poses and reconstruct both hand trajectories from video. From the same recording, we use each hand’s current pose relative to the object to represent hand–object affordances. During post-training, we inject these affordances into the action expert through cross-attention while keeping the vision-language backbone frozen. Additionally, we release 128,400 egocentric demonstration episodes spanning 1,000 hours and 1,284 tasks, together with converted humanoid action trajectories and rendered robot-view observations. Across four real-world tasks, EgoLoAF nearly achieves teleoperation performance (73.1 vs. 74.4 in mean Task Progress Score), while achieving a mean 4.03× improvement in data-collection efficiency.</p></details>
+    </section>
+
+    <section class="section method-section" id="method" aria-labelledby="method-title">
+      <div class="page-width">
+        <div class="section-heading"><span class="eyebrow">02 / Method</span><h2 id="method-title">One recording. Motion and affordances.</h2></div>
+        <p class="section-lead">The same demonstration tells the policy how the body and hands move, and how the hands are positioned relative to the object before that motion.</p>
+        <figure class="paper-figure"><button class="figure-zoom" type="button" data-zoom="./assets/pipeline.webp" data-title="EgoLoAF method pipeline" aria-label="Enlarge the EgoLoAF method pipeline"><img src="./assets/pipeline.webp" alt="EgoLoAF pipeline: reconstruct torso and hand action targets, render G1 arms and O6 hands, and condition the action expert on hand–object affordances through cross-attention" width="2200" height="884" loading="lazy"><span class="zoom-indicator">↗ Enlarge</span></button><figcaption>Egocentric-to-humanoid conversion and affordance-guided VLA post-training.</figcaption></figure>
+        <div class="method-steps">
+          <article><span class="step-index">A</span><h3>Convert the motion</h3><p>Reconstruct both hand trajectories from video and estimate torso motion from recorded camera poses. Describe subsequent motion relative to the current torso to form coordinated action targets.</p></article>
+          <article><span class="step-index">B</span><h3>Align the observations</h3><p>Replace human arms and hands with rendered G1 arms and O6 hands. The rendered observations and action targets form humanoid training pairs.</p></article>
+          <article><span class="step-index">C</span><h3>Guide the action expert</h3><p>Encode current object-relative hand poses as hand–object affordances. Inject these affordances through cross-attention during post-training, with the VLM frozen.</p></article>
+        </div>
+        <div class="deployment-note"><span class="status-dot"></span><p><strong>At deployment,</strong> the G1 estimates the same hand–object affordance representation from its own observations to guide action generation.</p></div>
+      </div>
     </section>
 
     <section class="demo-section page-width" id="demos" aria-labelledby="demos-title">
@@ -110,34 +149,10 @@
       </div>
     </section>
 
-    <section class="section page-width" id="overview" aria-labelledby="overview-title">
-      <div class="section-heading"><span class="eyebrow">01 / Overview</span><h2 id="overview-title">From ego video to humanoid training data.</h2></div>
-      <p class="section-lead">EgoLoAF converts egocentric human demonstrations into coordinated torso and hand action targets, robot-view observations, and hand–object affordances. These converted data post-train a humanoid VLA without task-specific real-robot teleoperation demonstrations.</p>
-      <div class="takeaways">
-        <div><span class="takeaway-number">01</span><h3>Collect without a robot</h3><p>Record natural human demonstrations without wearable motion trackers.</p></div>
-        <div><span class="takeaway-number">02</span><h3>Make contact cues explicit</h3><p>Pair subsequent motion with the current pose of each hand relative to the object.</p></div>
-        <div><span class="takeaway-number">03</span><h3>Post-train efficiently</h3><p>Adapt the action expert while keeping the vision-language backbone frozen.</p></div>
-      </div>
-      <details class="abstract"><summary>Read the abstract <span aria-hidden="true">+</span></summary><p>Training humanoid vision-language-action (VLA) models relies heavily on costly real-robot teleoperation. Recent efforts convert egocentric human demonstrations into humanoid training data. However, most methods still require wearable motion trackers and leave important hand–object interaction cues implicit. Many also mix in real-robot teleoperation data for VLA post-training. These dependencies limit scalable data collection, while implicit interaction cues make precise contact harder to learn. To overcome these limitations, we propose <strong>EgoLoAF</strong>, the first paradigm to derive all training data for humanoid loco-manipulation directly from egocentric demonstrations without wearable motion trackers. We post-train the VLA on the converted data alone, without real-robot teleoperation demonstrations, and use explicit hand–object interaction cues to guide action generation. Specifically, to obtain humanoid action targets, we estimate torso motion from recorded camera poses and reconstruct both hand trajectories from video. From the same recording, we use each hand’s current pose relative to the object to represent hand–object affordances. During post-training, we inject these affordances into the action expert through cross-attention while keeping the vision-language backbone frozen. Additionally, we release 128,400 egocentric demonstration episodes spanning 1,000 hours and 1,284 tasks, together with converted humanoid action trajectories and rendered robot-view observations. Across four real-world tasks, EgoLoAF nearly achieves teleoperation performance (73.1 vs. 74.4 in mean Task Progress Score), while achieving a mean 4.03× improvement in data-collection efficiency.</p></details>
-    </section>
-
-    <section class="section method-section" id="method" aria-labelledby="method-title">
-      <div class="page-width">
-        <div class="section-heading"><span class="eyebrow">02 / Method</span><h2 id="method-title">One recording. Motion and affordances.</h2></div>
-        <p class="section-lead">The same demonstration tells the policy how the body and hands move, and how the hands are positioned relative to the object before that motion.</p>
-        <figure class="paper-figure"><button class="figure-zoom" type="button" data-zoom="./assets/pipeline.webp" data-title="EgoLoAF method pipeline" aria-label="Enlarge the EgoLoAF method pipeline"><img src="./assets/pipeline.webp" alt="EgoLoAF pipeline: reconstruct torso and hand action targets, render G1 arms and O6 hands, and condition the action expert on hand–object affordances through cross-attention" width="2200" height="884" loading="lazy"><span class="zoom-indicator">↗ Enlarge</span></button><figcaption>Egocentric-to-humanoid conversion and affordance-guided VLA post-training.</figcaption></figure>
-        <div class="method-steps">
-          <article><span class="step-index">A</span><h3>Convert the motion</h3><p>Reconstruct both hand trajectories from video and estimate torso motion from recorded camera poses. Describe subsequent motion relative to the current torso to form coordinated action targets.</p></article>
-          <article><span class="step-index">B</span><h3>Align the observations</h3><p>Replace human arms and hands with rendered G1 arms and O6 hands. The rendered observations and action targets form humanoid training pairs.</p></article>
-          <article><span class="step-index">C</span><h3>Guide the action expert</h3><p>Encode current object-relative hand poses as hand–object affordances. Inject these affordances through cross-attention during post-training, with the VLM frozen.</p></article>
-        </div>
-        <div class="deployment-note"><span class="status-dot"></span><p><strong>At deployment,</strong> the G1 estimates the same hand–object affordance representation from its own observations to guide action generation.</p></div>
-      </div>
-    </section>
-
     <section class="section page-width" id="dataset" aria-labelledby="dataset-title">
       <div class="section-heading split-heading"><div><span class="eyebrow">03 / Dataset</span><h2 id="dataset-title">Built for ego-to-humanoid learning.</h2></div><span class="availability">Dataset · Coming soon</span></div>
       <p class="section-lead">128,400 complete demonstrations across 1,284 tasks, with 100 demonstrations per task. Quality-filtered recordings total 1,000 hours and cover different manipulation goals, objects, and body movements.</p>
+      <div class="metrics dataset-metrics" aria-label="Dataset scale"><div><strong>128,400</strong><span>demonstration episodes</span></div><div><strong>1,000<span class="unit">h</span></strong><span>after quality filtering</span></div><div><strong>1,284</strong><span>tasks</span></div></div>
       <figure class="paper-figure dataset-figure"><button class="figure-zoom" type="button" data-zoom="./assets/dataset.webp" data-title="The EgoLoAF dataset" aria-label="Enlarge the EgoLoAF dataset examples"><img src="./assets/dataset.webp" alt="Paired original and robot-rendered egocentric observations, G1 torso poses, and diverse manipulation examples" width="2400" height="680" loading="lazy"><span class="zoom-indicator">↗ Enlarge</span></button><figcaption>Paired human and rendered robot observations, alongside coordinated humanoid motion and diverse task examples.</figcaption></figure>
       <div class="dataset-details"><div><h3>Every demonstration includes</h3><ul><li>Original RGB observations and task instructions</li><li>Torso and bilateral hand trajectories, with hand-opening states</li><li>Rendered observations with G1 arms and O6 hands</li><li>Object poses and precomputed hand–object affordances</li></ul></div><div><h3>Time-aligned for training</h3><p>Original and rendered frames share timestamps, motion targets, and affordance annotations. Training windows pair a current observation and its affordances with subsequent torso and hand motion.</p><p class="dataset-footnote">Recordings are checked for completeness, camera trajectories, rendering quality, and task completion.</p></div></div>
     </section>

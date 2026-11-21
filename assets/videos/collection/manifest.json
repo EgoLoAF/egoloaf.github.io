@@ -1,0 +1,56 @@
+{
+  "date": "2026-11-21",
+  "description": "Full author-provided collection recordings aligned at their starts. Left: robot teleoperation; right: egocentric human collection. No footage is removed and both sides retain original timing. The shorter left recording holds its final frame for 1.3 seconds. All audio tracks are removed. Playback speed is applied in the browser.",
+  "sources": [
+    {
+      "name": "robot-teleoperation",
+      "source_file": "8cff8d4408f49d1620caefab409f3901.mp4",
+      "source_sha256": "72faed3232191b8eed8f30f7274e629e1cd30404496696ebffffecccadc67b10",
+      "frame_count": 4693,
+      "duration_seconds": 156.43333333333334,
+      "width": 960,
+      "height": 544,
+      "alignment_offset_seconds": 0,
+      "final_frame_hold_seconds": 1.3,
+      "all_frames_retained": true
+    },
+    {
+      "name": "egocentric-collection",
+      "source_file": "cfe4f69dcfba3c8918e4d80a512c2e62.mp4",
+      "source_sha256": "8ac9a2f73cf048d7cb55025671d8f0d6afb2f927bd96c07e1388e99966457029",
+      "frame_count": 4732,
+      "duration_seconds": 157.73333333333332,
+      "width": 960,
+      "height": 544,
+      "alignment_offset_seconds": 0,
+      "final_frame_hold_seconds": 0.0,
+      "all_frames_retained": true
+    }
+  ],
+  "output": {
+    "file": "collection-comparison.mp4",
+    "poster": "collection-comparison.jpg",
+    "codec": "h264",
+    "width": 1936,
+    "height": 544,
+    "frame_count": 4732,
+    "duration_seconds": 157.73333333333332,
+    "audio_streams": 0,
+    "default_playback_rate": 4,
+    "bytes": 23361579,
+    "sha256": "96d2ef9791482e2a014aad0c71411179616c3e3cf5481afffa0a23dbe641eb57"
+  },
+  "portrait_output": {
+    "file": "collection-comparison-portrait.mp4",
+    "poster": "collection-comparison-portrait.jpg",
+    "codec": "h264",
+    "width": 960,
+    "height": 1104,
+    "frame_count": 4732,
+    "duration_seconds": 157.73333333333332,
+    "audio_streams": 0,
+    "default_playback_rate": 4,
+    "bytes": 23084203,
+    "sha256": "8994b445c681eec0a6eac4953aa51fcff5425876d998996a2517ef3f86e5400d"
+  }
+}
