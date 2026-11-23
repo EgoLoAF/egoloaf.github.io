@@ -1,43 +1,50 @@
 # EgoLoAF project page
 
-Static research project website for **EgoLoAF: Learning Humanoid Loco-Manipulation from Egocentric Demonstrations with Hand–Object Affordances**.
+Static project website for **EgoLoAF: Learning Humanoid Loco-Manipulation from Egocentric Demonstrations with Hand–Object Affordances**.
 
-Website: https://egoloaf.github.io/
+Official website: https://egoloaf.github.io/
+Repository: https://github.com/EgoLoAF/egoloaf.github.io
 
-## Preview locally
+## Local preview
 
-Run `python3 -m http.server 8080` in this directory and open http://localhost:8080/.
-No dependencies or build step are required.
+Run `python3 -m http.server 8770 --bind 127.0.0.1` in this directory, then open http://127.0.0.1:8770/ . No dependencies or build step are required.
 
-## Update the page
+## Page structure
 
-- `index.html`: paper information, authors, abstract, dataset, results, and citation.
-- `styles.css`: responsive presentation.
-- `script.js`: demo playback and speed controls, task comparison, image enlargement, navigation, and citation copying.
-- `assets/`: paper PDF, research figures, complete task videos, real experiment frames, and supplied logos.
+- Cinematic opening: moving observation wall, full title, authors, contribution notes, affiliations, and original white institution logos.
+- Collection comparison: synchronized cabinet-task recordings, staffing, live completion and phase readouts, and measured acquisition effort across four tasks.
+- Method: original high-resolution pipeline and a concise account of motion, affordances, observation rendering, and post-training.
+- Conversion showcase: two smaller rendering players shown side by side, with individual controls and Play both examples. Each retains the original RGB and humanoid-motion insets.
+- Real-world tasks: the four complete recordings already supplied in this repository, with playback speed controls.
+- Dataset: scale, task-motion coverage, aligned training modalities, and quality checks.
+- Results, paper, and citation.
 
-The **Code** button links to the [official code repository](https://github.com/EgoLoAF/EgoLoAF-Official), where the code release is marked **Coming soon**. The dataset button remains unavailable and displays **Coming soon**.
+The Code link points to the official code repository and remains marked Coming soon. Dataset download remains Coming soon.
 
-## Opening collection comparison
+The fixed navigation changes with scrolling: the transparent hero header becomes white, the three institution logos appear at the left, the EgoLoAF wordmark moves to the center, and section links move to the right. Narrow layouts use a menu and compact institution marks. Motion respects the reduced-motion setting.
 
-The opening `#collection` section introduces the egocentric collection paradigm with synchronized, complete Tissue-to-Cabinet collection recordings: robot teleoperation on the left (one operator and one reset assistant), and human egocentric collection on the right (one person). A single H.264 video guarantees a shared time scale during playback, buffering, seeking, and speed changes. On narrow screens, an equivalent portrait composition places teleoperation above egocentric collection; changing orientation preserves the playback position and rate. Both sides default to 4×, with 1× and 2× available. Audio tracks are removed.
+## Files
 
-All source frames and original timing are retained. The teleoperation recording lasts 156.433 seconds and the human recording 157.733 seconds; the shorter left recording holds its final frame for 1.3 seconds. The player does not loop: the final counts remain visible until replay. `assets/videos/collection/manifest.json` records source provenance, frame counts, timing, and checksums.
+- `index.html`: content and media structure.
+- `styles.css`: approved cinematic identity and common responsive layout.
+- `page-sections.css`: comparison, rendering showcase, and dataset coverage.
+- `script.js`: native video playback, synchronized readouts, media selection, figure enlargement, navigation, and citation copying.
+- `assets/`: paper, original figures, genuine recordings, rendered training-data examples, and supplied identity assets.
 
-The inline `#collection-timeline` JSON contains visually reviewed completion and phase markers, rounded to whole seconds. Counters track the visible demonstrations in these recordings (one teleoperated, four human), including scene and robot resets between demonstrations. These clip counts are separate from the paper's mean 4.03× person-hour efficiency across four tasks, which remains in Results.
+## Collection comparison
 
-## Task demonstrations
+The existing composite retains both full recordings on one clock: teleoperation on the left and an external view of human egocentric collection on the right. The human wears a chest camera. Teleoperation uses an operator and reset assistant; human collection uses one person. Mobile uses the equivalent portrait composition, with teleoperation above and human collection below. Changing layout preserves playback position and rate.
 
-The page proceeds from the collection comparison to Overview, Method, the four task demonstrations, Dataset, and Results. The `#demos` section follows Method. Four complete recordings appear in a two-column desktop grid and a single column on mobile. Tissue-to-Box, Tissue-to-Bin, and Pick-Turn-Place default to 2× playback; Tissue-to-Cabinet defaults to 3×. Each player has independent native controls and a speed selector, including 1×.
+Both recordings retain all original frames and timing. The 156.433-second teleoperation clip holds its final frame for 1.3 seconds to match the 157.733-second human clip. Playback defaults to 4×, with 1× and 2× available. Completion and phase markers come from the existing visually reviewed timeline, rounded to whole seconds. The observed one-versus-four count in this clip is separate from the paper's mean 4.03× acquisition person-hour efficiency across four matched training budgets.
 
-Videos are H.264 MP4 files with no audio tracks. All original video frames and timestamps are retained; speed is applied in the browser, so the full original-speed recording remains available. `assets/videos/manifest.json` records durations, frame counts, dimensions, default speeds, and checksums. Posters are frames from the corresponding recordings.
+## Video behavior and provenance
 
-Visible videos loop independently. Playback pauses outside the viewport or when the tab is hidden, and deliberate user pauses are respected. Reduced-motion and data-saving preferences disable automatic playback. Without JavaScript, native controls still play the complete recordings at their original speed.
+Videos use browser-compatible H.264 MP4 with silent playback. The small hero wall loops automatically and pauses offscreen; reduced-motion preferences are respected. Other videos start through user controls. Real task clips retain their complete original recordings, with browser playback defaults of 2× or 3× and an original-speed option.
 
-## Hosting
+The two new conversion clips retain full 1920×1080 framing and original timing. The main view shows rendered G1 arms and O6 hands, the upper-right inset shows original human RGB, and the lower-left inset shows reconstructed humanoid motion. These are visualizations of converted training data, distinct from the real-robot execution recordings.
 
-The `EgoLoAF/egoloaf.github.io` repository hosts the account homepage at https://egoloaf.github.io/. GitHub Pages serves the root of `main`; configure **Settings → Pages → Deploy from a branch → main → / (root)**. `.nojekyll` preserves the buildless static site. Asset paths are relative, and the canonical URL, social preview, and citation point to the account homepage.
+Existing collection and task manifests remain under `assets/videos/`. Rendered samples are under `assets/videos/rendering/`. Research figures, paper, and media are supplied by the authors. Institution logos retain their original branding; no ownership of university marks is implied.
 
-## Asset provenance
+## Hosting and updates
 
-Research figures and the paper are provided by the EgoLoAF authors. `assets/manifest.json` records figure and frame provenance. Institution logos retain their original branding; their sources are recorded in `assets/logos/sources.json`. No ownership of university marks is implied. The figures, paper, logos, and experiment imagery are not covered by a separate website code license.
+GitHub Pages serves the root of `main` in EgoLoAF/egoloaf.github.io. `.nojekyll` preserves the buildless static site. Canonical, social, and citation URLs use https://egoloaf.github.io/ . Re-check upstream changes before applying an approved update. Push only after the author's upload instruction.
