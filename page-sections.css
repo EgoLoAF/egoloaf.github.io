@@ -40,6 +40,42 @@
 .resource-status > a:hover { color: #fff; }
 .resource-status > a:hover em { color: #d8c5f6; }
 
+/* The complete film is on demand; the opening video wall stays lightweight. */
+.film-section { padding-block: 76px; color: #f5f0fa; background: #17131e; border-bottom: 1px solid #30273b; }
+.film-grid { display: grid; grid-template-columns: minmax(0, .82fr) minmax(0, 1.65fr); align-items: center; gap: 60px; }
+.film-copy { min-width: 0; }
+.film-copy .eyebrow { color: #c4a9e5; }
+.film-copy h2 { color: #f7f2fb; font-size: clamp(29px, 2.8vw, 39px); line-height: 1.25; }
+.film-description { max-width: 350px; margin-top: 22px; color: #b9afc5; font-size: 16px; line-height: 1.8; }
+.film-meta { display: flex; flex-wrap: wrap; gap: 8px 15px; margin-top: 24px; color: #b5a4ca; font-size: 12px; line-height: 1.6; }
+.film-meta > span + span::before { content: '·'; margin-right: 15px; color: #6e5b85; }
+.film-meta > span:first-child { color: #e0cbfa; font-weight: 600; }
+.film-continue { display: inline-flex; align-items: center; gap: 16px; margin-top: 27px; padding-block: 7px; color: #ddc9f5; font-size: 14px; border-bottom: 1px solid #68517e; }
+.film-continue:hover { color: #fff; border-color: #c5a5e8; }
+.film-preview { position: relative; display: block; min-width: 0; overflow: hidden; aspect-ratio: 16 / 9; border: 1px solid #5b486d; border-radius: 7px; background: #0b0910; box-shadow: 0 20px 65px rgba(0,0,0,.2); }
+.film-preview > img { width: 100%; height: 100%; object-fit: contain; }
+.film-preview::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(8,5,15,.55)); pointer-events: none; }
+.film-play { position: absolute; z-index: 1; inset: 50% auto auto 50%; display: flex; align-items: center; justify-content: center; gap: 12px; width: max-content; max-width: calc(100% - 32px); min-height: 54px; padding: 13px 21px; transform: translate(-50%, -50%); border: 1px solid rgba(237,219,255,.65); border-radius: 5px; color: #fff; background: rgba(27,16,40,.88); font-size: 15px; font-weight: 500; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); transition: background .2s, border-color .2s; }
+.film-play svg { width: 17px; height: 17px; flex-shrink: 0; fill: currentColor; stroke: none; }
+.film-preview:hover .film-play { background: rgba(105,64,149,.96); border-color: #dfc3ff; }
+.film-duration { position: absolute; z-index: 1; right: 17px; bottom: 15px; padding: 3px 7px; border-radius: 3px; background: rgba(16,10,24,.76); color: #f4eafa; font-size: 12px; font-variant-numeric: tabular-nums; line-height: 1.5; }
+@media (max-width: 900px) {
+  .film-grid { grid-template-columns: minmax(0, .85fr) minmax(0, 1.3fr); gap: 30px; }
+  .film-copy h2 { font-size: 29px; }
+  .film-description { margin-top: 16px; font-size: 15px; }
+  .film-meta { gap: 7px 10px; margin-top: 18px; }
+  .film-meta > span + span::before { margin-right: 10px; }
+}
+@media (max-width: 650px) {
+  .film-section { padding-block: 56px; }
+  .film-grid { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .film-copy h2 { font-size: 30px; }
+  .film-description { max-width: 430px; }
+  .film-continue { margin-top: 17px; }
+  .film-play { min-height: 48px; padding: 10px 16px; font-size: 14px; }
+  .film-duration { right: 12px; bottom: 10px; }
+}
+
 /* A synchronized recording, followed by the measured four-task comparison. */
 .collection-section { --copper: #a6653f; --copper-soft: #f8f1eb; --ego: #7651b9; --ego-soft: #f3eefb; background: #fff; border-bottom: 1px solid var(--line); }
 .collection-comparison { overflow: hidden; border: 1px solid #ddd5e5; border-radius: 7px; background: #fff; }

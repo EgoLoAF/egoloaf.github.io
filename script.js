@@ -518,7 +518,9 @@
         event.preventDefault();
         closeDialog(dialog);
       }
-      // Native showModal traps focus; this also covers the open-attribute fallback.
+      // Let the native dialog retain navigation through the video's controls.
+      // Only the open-attribute fallback needs a manual focus trap.
+      if (typeof dialog.showModal === 'function') return;
       if (event.key !== 'Tab') return;
       const focusable = $$('button, a[href], input, select, textarea, video[controls], [tabindex="0"]', dialog)
         .filter((element) => !element.disabled && !element.hidden);
@@ -553,13 +555,17 @@
   $('#close-video-dialog')?.addEventListener('click', () => closeDialog(videoDialog));
   $('#close-figure-dialog')?.addEventListener('click', () => closeDialog(figureDialog));
   $$('[data-film]').forEach((trigger) => {
-    trigger.addEventListener('click', () => {
+    trigger.addEventListener('click', (event) => {
       if (!videoDialog || !modalVideo) return;
+      event.preventDefault();
       const title = trigger.dataset.filmTitle || 'EgoLoAF film';
       $('#video-dialog-title').textContent = title;
       modalVideo.setAttribute('aria-label', title);
       modalVideo.poster = trigger.dataset.filmPoster || '';
       modalVideo.src = trigger.dataset.film;
+      modalVideo.muted = false;
+      modalVideo.defaultMuted = false;
+      modalVideo.playbackRate = 1;
       if (openDialog(videoDialog, trigger)) playSafely(modalVideo);
     });
   });

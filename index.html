@@ -14,9 +14,9 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://egoloaf.github.io/">
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./styles.css?v=scroll-nav-20261123">
-  <link rel="stylesheet" href="./page-sections.css?v=scroll-nav-20261123">
-  <script src="./script.js?v=scroll-nav-20261123" defer></script>
+  <link rel="stylesheet" href="./styles.css?v=project-film-20261123">
+  <link rel="stylesheet" href="./page-sections.css?v=project-film-20261123">
+  <script src="./script.js?v=project-film-20261123" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -57,14 +57,31 @@
         </div>
         <div class="hero-actions">
           <a class="button button-white" href="./assets/EgoLoAF.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6M9 16h6"/></svg>Read the paper</a>
-          <a class="button button-glass" href="#collection">See data collection</a>
+          <a class="button button-glass" href="./assets/videos/project-film.mp4" data-film="./assets/videos/project-film.mp4" data-film-poster="./assets/posters/project-film.jpg" data-film-title="EgoLoAF — Project video" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7z"/></svg>Watch the film</a>
         </div>
         <div class="resource-status"><a href="https://github.com/EgoLoAF/EgoLoAF-Official" target="_blank" rel="noopener noreferrer">Code <em>Coming soon</em></a><span>Dataset <em>Coming soon</em></span></div>
       </div>
       <button class="background-toggle" id="background-toggle" type="button" aria-controls="hero-video" aria-pressed="false" aria-label="Pause background video"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg><span>Pause background</span></button>
-      <a class="hero-scroll" href="#collection">Explore the work<span aria-hidden="true"></span></a>
+      <a class="hero-scroll" href="#film">Explore the work<span aria-hidden="true"></span></a>
     </section>
 
+
+    <section class="section film-section" id="film" aria-labelledby="film-title">
+      <div class="page-width film-grid">
+        <div class="film-copy reveal">
+          <p class="eyebrow">Project video</p>
+          <h2 id="film-title">From ego video<br>to humanoid action.</h2>
+          <p class="film-description">Explore the dataset, conversion pipeline, and real-world humanoid demonstrations in the full project video.</p>
+          <div class="film-meta" aria-label="Video details"><span>1080p</span><span>Full project film</span><span>With audio</span></div>
+          <a class="film-continue" href="#collection">Explore data collection <span aria-hidden="true">↗</span></a>
+        </div>
+        <a class="film-preview reveal" href="./assets/videos/project-film.mp4" data-film="./assets/videos/project-film.mp4" data-film-poster="./assets/posters/project-film.jpg" data-film-title="EgoLoAF — Project video" aria-label="Play the full EgoLoAF project video" aria-haspopup="dialog">
+          <img src="./assets/posters/project-film.jpg" alt="Preview of the EgoLoAF project video" width="1920" height="1080" loading="lazy" decoding="async">
+          <span class="film-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7z"/></svg><span>Watch the full film</span></span>
+          <span class="film-duration" aria-label="Duration 3 minutes 24 seconds">03:24</span>
+        </a>
+      </div>
+    </section>
 
     <section class="section collection-section" id="collection" aria-labelledby="collection-title">
       <div class="page-width">

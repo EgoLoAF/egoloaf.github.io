@@ -12,6 +12,7 @@ Run `python3 -m http.server 8770 --bind 127.0.0.1` in this directory, then open 
 ## Page structure
 
 - Cinematic opening: moving observation wall, full title, authors, contribution notes, affiliations, and original white institution logos.
+- Project film: the supplied full-length HD explanation, placed immediately below the hero and also linked from the hero. It opens in an accessible video dialog with sound and native playback controls.
 - Collection comparison: synchronized cabinet-task recordings, staffing, live completion and phase readouts, and measured acquisition effort across four tasks.
 - Method: original high-resolution pipeline and a concise account of motion, affordances, observation rendering, and post-training.
 - Conversion showcase: two smaller rendering players shown side by side, with individual controls and Play both examples. Each retains the original RGB and humanoid-motion insets.
@@ -39,9 +40,11 @@ Both recordings retain all original frames and timing. The 156.433-second teleop
 
 ## Video behavior and provenance
 
-Videos use browser-compatible H.264 MP4 with silent playback. The small hero wall loops automatically and pauses offscreen; reduced-motion preferences are respected. Other videos start through user controls. Real task clips retain their complete original recordings, with browser playback defaults of 2× or 3× and an original-speed option.
+Videos use browser-compatible H.264 MP4. The project film preserves its audio and plays at original speed after an explicit click. Closing the dialog pauses and unloads it; opening it pauses the other players. The full film is not fetched on page load. Other showcase clips play silently. The small hero wall loops automatically and pauses offscreen; reduced-motion preferences are respected. Other videos start through user controls. Real task clips retain their complete original recordings, with browser playback defaults of 2× or 3× and an original-speed option.
 
 The two new conversion clips retain full 1920×1080 framing and original timing. The main view shows rendered G1 arms and O6 hands, the upper-right inset shows original human RGB, and the lower-left inset shows reconstructed humanoid motion. These are visualizations of converted training data, distinct from the real-robot execution recordings.
+
+`assets/videos/project-film.mp4` is the full 204.33-second project explanation supplied in `高画质.zip`. The web copy retains all 6,130 frames at 1920×1080 and 30 fps, with the original AAC audio copied unchanged. H.264 encoding and a front-loaded MP4 index keep the 86 MB asset compatible with GitHub hosting and on-demand playback. Its poster is an original title frame at 16 seconds.
 
 Existing collection and task manifests remain under `assets/videos/`. Rendered samples are under `assets/videos/rendering/`. Research figures, paper, and media are supplied by the authors. Institution logos retain their original branding; no ownership of university marks is implied.
 
