@@ -1,6 +1,6 @@
 {
-  "date": "2026-11-21",
-  "description": "Full author-provided collection recordings aligned at their starts. Left: robot teleoperation; right: egocentric human collection. No footage is removed and both sides retain original timing. The shorter left recording holds its final frame for 1.3 seconds. All audio tracks are removed. Playback speed is applied in the browser.",
+  "date": "2026-11-24",
+  "description": "Full author-provided robot teleoperation recording and replacement human-collection recording aligned at their starts. All video frames are retained at 30 fps. The shorter robot recording holds its final frame for 1.3 seconds. Audio is omitted, and playback speed is applied in the browser. The replacement has the same frame count and task-event timing as the previous human clip.",
   "sources": [
     {
       "name": "robot-teleoperation",
@@ -16,15 +16,21 @@
     },
     {
       "name": "egocentric-collection",
-      "source_file": "cfe4f69dcfba3c8918e4d80a512c2e62.mp4",
-      "source_sha256": "8ac9a2f73cf048d7cb55025671d8f0d6afb2f927bd96c07e1388e99966457029",
+      "source_file": "5cae2bce6b88171b4490676fb070f571.mp4",
+      "source_sha256": "8f02620bef082717ee11574b7c096b5144ad00279953d2c7d3e41184dc85ef5b",
       "frame_count": 4732,
       "duration_seconds": 157.73333333333332,
       "width": 960,
       "height": 544,
       "alignment_offset_seconds": 0,
       "final_frame_hold_seconds": 0.0,
-      "all_frames_retained": true
+      "all_frames_retained": true,
+      "source_video_duration_seconds": 157.733,
+      "source_container_duration_seconds": 157.826304,
+      "replacement_date": "2026-11-24",
+      "video_frames_retained": 4732,
+      "source_frame_rate": "4732000/157733",
+      "output_frame_rate": 30
     }
   ],
   "output": {
@@ -37,8 +43,12 @@
     "duration_seconds": 157.73333333333332,
     "audio_streams": 0,
     "default_playback_rate": 4,
-    "bytes": 23361579,
-    "sha256": "96d2ef9791482e2a014aad0c71411179616c3e3cf5481afffa0a23dbe641eb57"
+    "bytes": 33168243,
+    "sha256": "c438c9f294bac74f4ea40003012dd41abdbaf4fcd6e0fb10ea7128a6ac2d7777",
+    "poster_bytes": 221286,
+    "poster_sha256": "095783a039e50cd956bfd20d6fccdcbabe1362e187daee90e92ca88b8d3ab609",
+    "color_metadata": "BT.709 limited range",
+    "media_version": "human-20261124"
   },
   "portrait_output": {
     "file": "collection-comparison-portrait.mp4",
@@ -50,7 +60,11 @@
     "duration_seconds": 157.73333333333332,
     "audio_streams": 0,
     "default_playback_rate": 4,
-    "bytes": 23084203,
-    "sha256": "8994b445c681eec0a6eac4953aa51fcff5425876d998996a2517ef3f86e5400d"
+    "bytes": 32816384,
+    "sha256": "3d8143aea59a7dd2a1ede9840cdcade72f0460df8ddb166c1b02621f5684e299",
+    "poster_bytes": 221255,
+    "poster_sha256": "2f7a909cf23663b8768d68c3738d20a054c277a7cf1acbab13a1365d41307757",
+    "color_metadata": "BT.709 limited range",
+    "media_version": "human-20261124"
   }
 }

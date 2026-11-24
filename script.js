@@ -387,8 +387,10 @@
     const updateCollectionOrientation = () => {
       const portrait = portraitLayout.matches;
       const stem = `./assets/videos/collection/collection-comparison${portrait ? '-portrait' : ''}`;
-      const source = `${stem}.mp4`;
-      collectionVideo.poster = `${stem}.jpg`;
+      const revision = collectionVideo.dataset.mediaVersion;
+      const versionQuery = revision ? `?v=${encodeURIComponent(revision)}` : '';
+      const source = `${stem}.mp4${versionQuery}`;
+      collectionVideo.poster = `${stem}.jpg${versionQuery}`;
       collectionVideo.setAttribute('aria-label', portrait
         ? 'Synchronized data collection: robot teleoperation above, egocentric human collection below'
         : 'Synchronized data collection: robot teleoperation on the left, egocentric human collection on the right');

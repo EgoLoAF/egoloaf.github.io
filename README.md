@@ -38,6 +38,8 @@ The existing composite retains both full recordings on one clock: teleoperation 
 
 Both recordings retain all original frames and timing. The 156.433-second teleoperation clip holds its final frame for 1.3 seconds to match the 157.733-second human clip. Playback defaults to 4×, with 1× and 2× available. Completion and phase markers come from the existing visually reviewed timeline, rounded to whole seconds. The observed one-versus-four count in this clip is separate from the paper's mean 4.03× acquisition person-hour efficiency across four matched training budgets.
 
+The human-side footage was replaced on 2026-11-24 with the author-provided `5cae2bce6b88171b4490676fb070f571.mp4`. Its 4,732 frames preserve the existing task-event timeline. Both landscape and portrait composites and their posters were regenerated from the sources; media URLs carry a revision to refresh cached copies.
+
 ## Video behavior and provenance
 
 Videos use browser-compatible H.264 MP4. The project film preserves its audio and plays at original speed after an explicit click. Closing the dialog pauses and unloads it; opening it pauses the other players. The full film is not fetched on page load. Other showcase clips play silently. The small hero wall loops automatically and pauses offscreen; reduced-motion preferences are respected. Other videos start through user controls. Real task clips retain their complete original recordings, with browser playback defaults of 2× or 3× and an original-speed option.
