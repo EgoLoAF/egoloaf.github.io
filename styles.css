@@ -77,6 +77,8 @@ sup { position: relative; top: -.12em; font-size: .62em; line-height: 0; margin-
 .cinema-hero h1 { max-width: 1160px; font-size: clamp(25px, 2.15vw, 31px); font-weight: 550; line-height: 1.35; letter-spacing: -.025em; text-wrap: balance; text-shadow: 0 2px 16px rgba(0,0,0,.2); }
 .authors { display: grid; grid-template-columns: repeat(5, max-content); justify-content: center; column-gap: clamp(24px, 3vw, 48px); row-gap: 7px; margin-top: 29px; font-size: 18px; font-weight: 450; line-height: 1.55; }
 .authors > span { white-space: nowrap; }
+.authors a { text-decoration: underline dashed rgba(255,255,255,.55); text-underline-offset: 4px; text-decoration-thickness: 1px; transition: color .18s ease, text-decoration-color .18s ease; }
+.authors a:hover, .authors a:focus-visible { color: #d8c5ff; text-decoration-color: currentColor; text-decoration-style: solid; }
 .authors sup { opacity: .9; }
 .author-notes { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 25px; margin-top: 18px; color: #ddd9e5; font-size: 14px; line-height: 1.5; }
 .affiliations { display: flex; flex-direction: column; justify-content: center; gap: 3px; max-width: 1180px; margin-top: 14px; color: #e6e2eb; font-size: 14px; line-height: 1.65; }
