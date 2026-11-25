@@ -29,8 +29,8 @@
       </div>
       <a class="nav-brand" href="#home" aria-label="EgoLoAF home"><img class="nav-wordmark-light" src="./assets/egoloaf-wordmark-white.png" alt="EgoLoAF" width="2087" height="424"><img class="nav-wordmark-dark" src="./assets/egoloaf-logo.png" alt="" width="532" height="109"></a>
       <div class="nav-actions">
-        <nav id="navigation" aria-label="Main navigation"><a href="#collection">Collection</a><a href="#method">Method</a><a href="#demos">Demos</a><a href="#dataset">Dataset</a><a href="#results">Results</a><a href="#citation">Citation</a><a class="nav-menu-paper" href="./assets/EgoLoAF.pdf" target="_blank" rel="noopener">Read paper</a></nav>
-        <a class="nav-paper" href="./assets/EgoLoAF.pdf" target="_blank" rel="noopener">Read paper</a>
+        <nav id="navigation" aria-label="Main navigation"><a href="#collection">Collection</a><a href="#method">Method</a><a href="#demos">Demos</a><a href="#dataset">Dataset</a><a href="#results">Results</a><a href="#citation">Citation</a><a class="nav-menu-paper" href="https://arxiv.org/abs/2611.32260" target="_blank" rel="noopener">Read paper</a></nav>
+        <a class="nav-paper" href="https://arxiv.org/abs/2611.32260" target="_blank" rel="noopener">Read paper</a>
         <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="navigation" aria-expanded="false"><span></span><span></span></button>
       </div>
     </div>
@@ -56,7 +56,7 @@
           <span><img src="./assets/logos/xbotics-white.png" alt="Xbotics Research Team" width="1810" height="527"></span>
         </div>
         <div class="hero-actions">
-          <a class="button button-white" href="./assets/EgoLoAF.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6M9 16h6"/></svg>Read the paper</a>
+          <a class="button button-white" href="https://arxiv.org/abs/2611.32260" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6M9 16h6"/></svg>Read the paper</a>
           <a class="button button-glass" href="./assets/videos/project-film.mp4" data-film="./assets/videos/project-film.mp4" data-film-poster="./assets/posters/project-film.jpg" data-film-title="EgoLoAF — Project video" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7z"/></svg>Watch the film</a>
         </div>
         <div class="resource-status"><a href="https://github.com/EgoLoAF/EgoLoAF-Official" target="_blank" rel="noopener noreferrer">Code <em>Coming soon</em></a><span>Dataset <em>Coming soon</em></span></div>
@@ -198,18 +198,21 @@
       <details class="score-details"><summary>View complete scores and evaluation notes <span aria-hidden="true">+</span></summary><div class="table-scroll"><table><caption>Task Progress Score. Higher is better.</caption><thead><tr><th scope="col">Task</th><th scope="col">EgoLoAF</th><th scope="col">Teleoperation-trained</th><th scope="col">Ego without affordances</th></tr></thead><tbody><tr><th scope="row">Tissue-to-Box</th><td>81.0</td><td>81.4</td><td>64.2</td></tr><tr><th scope="row">Tissue-to-Bin</th><td>70.0</td><td>75.2</td><td>55.8</td></tr><tr><th scope="row">Pick-Turn-Place</th><td>75.4</td><td>74.8</td><td>50.2</td></tr><tr><th scope="row">Tissue-to-Cabinet</th><td>65.8</td><td>66.0</td><td>42.5</td></tr><tr class="table-mean"><th scope="row">Mean</th><td>73.1</td><td>74.4</td><td>53.2</td></tr></tbody></table></div><p>Scores aggregate repeated evaluation batches. Teleoperation-trained denotes the policy post-trained on real-robot teleoperation data. The ego baseline uses converted egocentric data without affordance conditioning.</p></details>
     </section>
 
-    <section class="paper-section section" id="paper" aria-labelledby="paper-section-title"><div class="page-width paper-grid"><div class="reveal"><p class="eyebrow">Read the research</p><h2 id="paper-section-title">The full story.</h2><p class="section-lead">From egocentric demonstrations to motion targets, robot observations, and explicit hand–object affordances.</p><a class="button button-dark" href="./assets/EgoLoAF.pdf" target="_blank" rel="noopener">Read the paper</a></div><details class="abstract reveal"><summary>Abstract <span aria-hidden="true">+</span></summary><p>Training humanoid vision-language-action (VLA) models relies heavily on costly real-robot teleoperation. Recent efforts convert egocentric human demonstrations into humanoid training data. However, most methods still require wearable motion trackers and leave important hand–object interaction cues implicit. Many also mix in real-robot teleoperation data for VLA post-training. These dependencies limit scalable data collection, while implicit interaction cues make precise contact harder to learn. To overcome these limitations, we propose <strong>EgoLoAF</strong>, a paradigm that derives humanoid loco-manipulation training data directly from egocentric demonstrations without wearable motion trackers. We post-train the VLA on the converted data alone and use explicit hand–object affordances to guide action generation. We release 128,400 egocentric demonstration episodes spanning 1,000 hours and 1,284 tasks, together with converted humanoid action trajectories and rendered robot-view observations. Across four real-world tasks, EgoLoAF nearly matches the teleoperation-trained baseline (73.1 vs. 74.4 mean TPS), while more than quadrupling data-collection efficiency on average (4.03×).</p></details></div></section>
+    <section class="paper-section section" id="paper" aria-labelledby="paper-section-title"><div class="page-width paper-grid"><div class="reveal"><p class="eyebrow">Read the research</p><h2 id="paper-section-title">The full story.</h2><p class="section-lead">From egocentric demonstrations to motion targets, robot observations, and explicit hand–object affordances.</p><a class="button button-dark" href="https://arxiv.org/abs/2611.32260" target="_blank" rel="noopener">Read the paper</a></div><details class="abstract reveal"><summary>Abstract <span aria-hidden="true">+</span></summary><p>Training humanoid vision-language-action (VLA) models relies heavily on costly real-robot teleoperation. Recent efforts convert egocentric human demonstrations into humanoid training data. However, most methods still require wearable motion trackers and leave important hand–object interaction cues implicit. Many also mix in real-robot teleoperation data for VLA post-training. These dependencies limit scalable data collection, while implicit interaction cues make precise contact harder to learn. To overcome these limitations, we propose <strong>EgoLoAF</strong>, a paradigm that derives humanoid loco-manipulation training data directly from egocentric demonstrations without wearable motion trackers. We post-train the VLA on the converted data alone and use explicit hand–object affordances to guide action generation. We release 128,400 egocentric demonstration episodes spanning 1,000 hours and 1,284 tasks, together with converted humanoid action trajectories and rendered robot-view observations. Across four real-world tasks, EgoLoAF nearly matches the teleoperation-trained baseline (73.1 vs. 74.4 mean TPS), while more than quadrupling data-collection efficiency on average (4.03×).</p></details></div></section>
 
     <section class="citation-section section page-width" id="citation" aria-labelledby="citation-title"><div class="section-heading"><div><p class="eyebrow">Build on this work</p><h2 id="citation-title">Citation</h2></div><button class="text-button" id="copy-citation" type="button">Copy BibTeX</button></div><pre><code id="bibtex">@misc{zeng2026egoloaf,
-  title  = {EgoLoAF: Learning Humanoid Loco-Manipulation from
+  title         = {EgoLoAF: Learning Humanoid Loco-Manipulation from
             Egocentric Demonstrations with Hand--Object Affordances},
-  author = {Yiming Zeng and Jiangyuxuan Dai and Yuheng Na and
+  author        = {Yiming Zeng and Jiangyuxuan Dai and Yuheng Na and
             {TAN ZHU XUAN} and Zihan Lin and Xinfang Qi and
             Shijian Zhang and Chengqi Shi and Yihan Kuang and
             Zhide Zhong and Junjie He and Junfeng Li and
             Zimu Han and Naipeng Li and Haoang Li},
-  year   = {2026},
-  url    = {https://egoloaf.github.io/}
+  year          = {2026},
+  eprint        = {2611.32260},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.RO},
+  url           = {https://arxiv.org/abs/2611.32260}
 }</code></pre><span class="sr-only" id="copy-status" role="status"></span></section>
   </main>
 

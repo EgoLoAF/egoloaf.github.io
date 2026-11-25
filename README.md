@@ -3,6 +3,7 @@
 Static project website for **EgoLoAF: Learning Humanoid Loco-Manipulation from Egocentric Demonstrations with Hand–Object Affordances**.
 
 Official website: https://egoloaf.github.io/
+Paper: https://arxiv.org/abs/2611.32260
 Repository: https://github.com/EgoLoAF/egoloaf.github.io
 
 ## Local preview
@@ -18,7 +19,7 @@ Run `python3 -m http.server 8770 --bind 127.0.0.1` in this directory, then open 
 - Conversion showcase: two smaller rendering players shown side by side, with individual controls and Play both examples. Each retains the original RGB and humanoid-motion insets.
 - Real-world tasks: the four complete recordings already supplied in this repository, with playback speed controls.
 - Dataset: scale, task-motion coverage, aligned training modalities, and quality checks.
-- Results, paper, and citation.
+- Results, the official arXiv paper, and its BibTeX citation (arXiv:2611.32260).
 
 The Code link points to the official code repository and remains marked Coming soon. Dataset download remains Coming soon.
 
@@ -52,4 +53,4 @@ Existing collection and task manifests remain under `assets/videos/`. Rendered s
 
 ## Hosting and updates
 
-GitHub Pages serves the root of `main` in EgoLoAF/egoloaf.github.io. `.nojekyll` preserves the buildless static site. Canonical, social, and citation URLs use https://egoloaf.github.io/ . Re-check upstream changes before applying an approved update. Push only after the author's upload instruction.
+GitHub Pages serves the root of `main` in EgoLoAF/egoloaf.github.io. `.nojekyll` preserves the buildless static site. Canonical and social URLs use https://egoloaf.github.io/ . Paper buttons and the BibTeX citation URL point to https://arxiv.org/abs/2611.32260 . Re-check upstream changes before applying an approved update. Push only after the author's upload instruction.
